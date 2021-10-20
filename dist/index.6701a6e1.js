@@ -22768,8 +22768,8 @@ class MainView extends _reactDefault.default.Component {
                 {
                     _id: 3,
                     Title: 'Gladiator',
-                    Description: 'https://www.imdb.com/title/tt0172495/?ref_=fn_al_tt_1',
-                    ImagePath: '...'
+                    Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
+                    ImagePath: '../../../img/Gladiator.png'
                 }
             ],
             selectedMovie: null
@@ -23053,6 +23053,7 @@ class MovieView extends _reactDefault.default.Component {
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movie.ImagePath,
+                        alt: movie.Title,
                         __source: {
                             fileName: "src/components/nain-view/movie-view.jsx",
                             lineNumber: 10
@@ -23068,16 +23069,16 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "label",
                             __source: {
                                 fileName: "src/components/nain-view/movie-view.jsx",
                                 lineNumber: 13
                             },
                             __self: this,
-                            children: "Title"
+                            children: "Title: "
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "value",
                             __source: {
                                 fileName: "src/components/nain-view/movie-view.jsx",
@@ -23096,16 +23097,16 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "label",
                             __source: {
                                 fileName: "src/components/nain-view/movie-view.jsx",
                                 lineNumber: 17
                             },
                             __self: this,
-                            children: "Description"
+                            children: "Description: "
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "value",
                             __source: {
                                 fileName: "src/components/nain-view/movie-view.jsx",
