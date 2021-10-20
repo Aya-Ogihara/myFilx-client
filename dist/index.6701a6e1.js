@@ -947,7 +947,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 // Import components
-var _mainView = require("./components/nain-view/main-view");
+var _mainView = require("./components/main-view/main-view");
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
 // Main component (will eventually use all the others)
@@ -972,7 +972,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/nain-view/main-view":"8nSx3","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","./components/main-view/main-view":"2zHas"}],"8xIwr":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -22730,107 +22730,7 @@ module.exports = require('./cjs/scheduler-tracing.development.js');
     exports.unstable_wrap = unstable_wrap;
 })();
 
-},{}],"8nSx3":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3db4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3db4.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-// Create MainView component
-parcelHelpers.export(exports, "MainView", ()=>MainView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-// import MovieCard
-var _movieCard = require("./movie-card");
-var _movieView = require("./movie-view");
-class MainView extends _reactDefault.default.Component {
-    constructor(){
-        super();
-        this.state = {
-            movies: [
-                {
-                    _id: 1,
-                    Title: 'Inception',
-                    Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
-                    ImagePath: '...'
-                },
-                {
-                    _id: 2,
-                    Title: 'The Shawshank Redemption',
-                    Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-                    ImagePath: '...'
-                },
-                {
-                    _id: 3,
-                    Title: 'Gladiator',
-                    Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
-                    ImagePath: '../../../img/Gladiator.png'
-                }
-            ],
-            selectedMovie: null
-        };
-    }
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
-    render() {
-        const { movies , selectedMovie  } = this.state;
-        // if (selectedMovie) return <MovieView movie={selectedMovie} />;
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/nain-view/main-view.jsx",
-                lineNumber: 32
-            },
-            __self: this,
-            children: "The list is empty!"
-        }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/nain-view/main-view.jsx",
-                lineNumber: 35
-            },
-            __self: this,
-            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                movie: selectedMovie,
-                onBackClick: (newSelectedMovie)=>{
-                    this.setSelectedMovie(newSelectedMovie);
-                },
-                __source: {
-                    fileName: "src/components/nain-view/main-view.jsx",
-                    lineNumber: 37
-                },
-                __self: this
-            }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie,
-                    onMovieClick: (movie1)=>{
-                        this.setSelectedMovie(movie1);
-                    },
-                    __source: {
-                        fileName: "src/components/nain-view/main-view.jsx",
-                        lineNumber: 38
-                    },
-                    __self: this
-                }, movie._id)
-            )
-        }));
-    }
-}
-
-  $parcel$ReactRefreshHelpers$3db4.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","./movie-card":"7Zi9k","./movie-view":"dp1lB"}],"11nWC":[function(require,module,exports) {
+},{}],"jUTZ8":[function() {},{}],"11nWC":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -22982,11 +22882,111 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"hkBxb"}],"7Zi9k":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8eab = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react-refresh/runtime":"hkBxb"}],"2zHas":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$35bf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8eab.prelude(module);
+$parcel$ReactRefreshHelpers$35bf.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// Create MainView component
+parcelHelpers.export(exports, "MainView", ()=>MainView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+// import MovieCard
+var _movieCard = require("./movie-card");
+var _movieView = require("./movie-view");
+class MainView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            movies: [
+                {
+                    _id: 1,
+                    Title: 'Inception',
+                    Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
+                    ImagePath: '...'
+                },
+                {
+                    _id: 2,
+                    Title: 'The Shawshank Redemption',
+                    Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+                    ImagePath: '...'
+                },
+                {
+                    _id: 3,
+                    Title: 'Gladiator',
+                    Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
+                    ImagePath: '...'
+                }
+            ],
+            selectedMovie: null
+        };
+    }
+    setSelectedMovie(newSelectedMovie) {
+        this.setState({
+            selectedMovie: newSelectedMovie
+        });
+    }
+    render() {
+        const { movies , selectedMovie  } = this.state;
+        // if (selectedMovie) return <MovieView movie={selectedMovie} />;
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 32
+            },
+            __self: this,
+            children: "The list is empty!"
+        }));
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 35
+            },
+            __self: this,
+            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+                movie: selectedMovie,
+                onBackClick: (newSelectedMovie)=>{
+                    this.setSelectedMovie(newSelectedMovie);
+                },
+                __source: {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 37
+                },
+                __self: this
+            }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                    movie: movie,
+                    onMovieClick: (movie1)=>{
+                        this.setSelectedMovie(movie1);
+                    },
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 38
+                    },
+                    __self: this
+                }, movie._id)
+            )
+        }));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$35bf.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","./movie-card":"gEtUe","./movie-view":"9YgNx","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"gEtUe":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a11c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a11c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -23005,7 +23005,7 @@ class MovieCard extends _reactDefault.default.Component {
                 onMovieClick(movie);
             },
             __source: {
-                fileName: "src/components/nain-view/movie-card.jsx",
+                fileName: "src/components/main-view/movie-card.jsx",
                 lineNumber: 6
             },
             __self: this,
@@ -23014,16 +23014,16 @@ class MovieCard extends _reactDefault.default.Component {
     }
 }
 
-  $parcel$ReactRefreshHelpers$8eab.postlude(module);
+  $parcel$ReactRefreshHelpers$a11c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"dp1lB":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2d6b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"9YgNx":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5a02 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2d6b.prelude(module);
+$parcel$ReactRefreshHelpers$5a02.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -23039,7 +23039,7 @@ class MovieView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "movie-view",
             __source: {
-                fileName: "src/components/nain-view/movie-view.jsx",
+                fileName: "src/components/main-view/movie-view.jsx",
                 lineNumber: 8
             },
             __self: this,
@@ -23047,7 +23047,7 @@ class MovieView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     className: "movie-image",
                     __source: {
-                        fileName: "src/components/nain-view/movie-view.jsx",
+                        fileName: "src/components/main-view/movie-view.jsx",
                         lineNumber: 9
                     },
                     __self: this,
@@ -23055,7 +23055,7 @@ class MovieView extends _reactDefault.default.Component {
                         src: movie.ImagePath,
                         alt: movie.Title,
                         __source: {
-                            fileName: "src/components/nain-view/movie-view.jsx",
+                            fileName: "src/components/main-view/movie-view.jsx",
                             lineNumber: 10
                         },
                         __self: this
@@ -23064,7 +23064,7 @@ class MovieView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "movie-title",
                     __source: {
-                        fileName: "src/components/nain-view/movie-view.jsx",
+                        fileName: "src/components/main-view/movie-view.jsx",
                         lineNumber: 12
                     },
                     __self: this,
@@ -23072,7 +23072,7 @@ class MovieView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "label",
                             __source: {
-                                fileName: "src/components/nain-view/movie-view.jsx",
+                                fileName: "src/components/main-view/movie-view.jsx",
                                 lineNumber: 13
                             },
                             __self: this,
@@ -23081,7 +23081,7 @@ class MovieView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "value",
                             __source: {
-                                fileName: "src/components/nain-view/movie-view.jsx",
+                                fileName: "src/components/main-view/movie-view.jsx",
                                 lineNumber: 14
                             },
                             __self: this,
@@ -23092,7 +23092,7 @@ class MovieView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "movie-description",
                     __source: {
-                        fileName: "src/components/nain-view/movie-view.jsx",
+                        fileName: "src/components/main-view/movie-view.jsx",
                         lineNumber: 16
                     },
                     __self: this,
@@ -23100,7 +23100,7 @@ class MovieView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "label",
                             __source: {
-                                fileName: "src/components/nain-view/movie-view.jsx",
+                                fileName: "src/components/main-view/movie-view.jsx",
                                 lineNumber: 17
                             },
                             __self: this,
@@ -23109,7 +23109,7 @@ class MovieView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "value",
                             __source: {
-                                fileName: "src/components/nain-view/movie-view.jsx",
+                                fileName: "src/components/main-view/movie-view.jsx",
                                 lineNumber: 18
                             },
                             __self: this,
@@ -23122,7 +23122,7 @@ class MovieView extends _reactDefault.default.Component {
                         onBackClick(null);
                     },
                     __source: {
-                        fileName: "src/components/nain-view/movie-view.jsx",
+                        fileName: "src/components/main-view/movie-view.jsx",
                         lineNumber: 20
                     },
                     __self: this,
@@ -23133,11 +23133,11 @@ class MovieView extends _reactDefault.default.Component {
     }
 }
 
-  $parcel$ReactRefreshHelpers$2d6b.postlude(module);
+  $parcel$ReactRefreshHelpers$5a02.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"jUTZ8":[function() {},{}]},["lHMdM","5sEhf","dLPEP"], "dLPEP", "parcelRequirefe6d")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}]},["lHMdM","5sEhf","dLPEP"], "dLPEP", "parcelRequirefe6d")
 
 //# sourceMappingURL=index.6701a6e1.js.map
