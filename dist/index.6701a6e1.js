@@ -22909,19 +22909,25 @@ class MainView extends _reactDefault.default.Component {
                     _id: 1,
                     Title: 'Inception',
                     Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
-                    ImagePath: '...'
+                    ImagePath: 'https://www.imdb.com/title/tt1375666/mediaviewer/rm3426651392/',
+                    Genre: 'Action',
+                    Director: 'Christopher Nolan'
                 },
                 {
                     _id: 2,
                     Title: 'The Shawshank Redemption',
                     Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-                    ImagePath: '...'
+                    ImagePath: 'https://www.imdb.com/title/tt0111161/mediaviewer/rm10105600/',
+                    Genre: '',
+                    Director: 'Franc Darabont'
                 },
                 {
                     _id: 3,
                     Title: 'Gladiator',
                     Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
-                    ImagePath: '...'
+                    ImagePath: 'https://www.imdb.com/title/tt0172495/mediaviewer/rm2442542592/',
+                    Genre: 'Adventure',
+                    Director: 'Ridley Scott'
                 }
             ],
             selectedMovie: null
@@ -23117,13 +23123,69 @@ class MovieView extends _reactDefault.default.Component {
                         })
                     ]
                 }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-genre",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 20
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 21
+                            },
+                            __self: this,
+                            children: "Genre: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 22
+                            },
+                            __self: this,
+                            children: movie.Genre
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-director",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 24
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 25
+                            },
+                            __self: this,
+                            children: "Director: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 26
+                            },
+                            __self: this,
+                            children: movie.Director
+                        })
+                    ]
+                }),
                 /*#__PURE__*/ _jsxRuntime.jsx("button", {
                     onClick: ()=>{
                         onBackClick(null);
                     },
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 20
+                        lineNumber: 28
                     },
                     __self: this,
                     children: "Back"
