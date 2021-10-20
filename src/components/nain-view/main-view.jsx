@@ -2,6 +2,7 @@ import React from 'react';
 
 // import MovieCard
 import { MovieCard } from './movie-card';
+import { MovieView } from './movie-view';
 
 // Create MainView component
 export class MainView extends React.Component {
@@ -10,31 +11,31 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [
-        { _id: 1, Title: 'Inception', Description: 'desc 1 ...', ImagePath: '...'},
-        { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc 2 ...', ImagePath: '...'},
-        { _id: 3, Title: 'Gladiator', Description: 'desc 3 ...', ImagePath: '...'}
-      ]
+        { _id: 1, Title: 'Inception', Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.', ImagePath: '...'},
+        { _id: 2, Title: 'The Shawshank Redemption', Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', ImagePath: '...'},
+        { _id: 3, Title: 'Gladiator', Description: 'https://www.imdb.com/title/tt0172495/?ref_=fn_al_tt_1', ImagePath: '...'}
+      ],
+      selectedMovie: null
     }
   }
 
+  setSelectedMovie(newSelectedMovie) {
+    this.setState({ selectedMovie: newSelectedMovie});
+  }
+
   render() {
-    // const movies = this.state.movies;
-    // if (movies.length === 0) {
-    //   return <div className="main-view">The list is empty!</div>
-    // } else {
-    //   return (
-    //     <div className="main-view">
-    //       {movies.map((movie) => {
-    //         return <div key={movie._id}>{ movie.Title }</div>
-    //       })}
-    //     </div>
-    //   );
-    // }
-    const { movies } = this.state;
+
+    const { movies, selectedMovie } = this.state;
+
+    // if (selectedMovie) return <MovieView movie={selectedMovie} />;
+
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+
     return (
       <div className="main-view">
-        {movies.map(movie => <MovieCard key={movie._id} movie={movie}/>)}
+        {selectedMovie
+          ?  <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          : movies.map(movie => <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie)}} />)}
       </div>
     );
   }
