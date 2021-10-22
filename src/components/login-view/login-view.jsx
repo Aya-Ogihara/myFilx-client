@@ -35,5 +35,6 @@ LoginView.propTypes = {
   user: propTypes.shape({
     username: propTypes.string,
     password: propTypes.string,
-  }).isRequired
+  }).isRequired,
+  onLoggedIn: propTypes.func.isRequired
 };
