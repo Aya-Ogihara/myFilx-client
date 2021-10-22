@@ -11,24 +11,25 @@ export function RegistrationView(props) {
     e.preventDefault();
     console.log(username, password, email, birthday);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    /* then call props.onRegistered(username) */
+    props.onRegistered(username);
   }
 
   return (
     <form>
+      <h1>Registration page</h1>
       <label>
-        Username:
+        *Username:
         <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
       </label>
       <br/>
       <label>
-        Password:
+        *Password:
         <input type="text" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
       <br/>
       <label>
-        Email:
+        *Email:
         <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
       </label>
       <br/>
