@@ -16,7 +16,8 @@ export class MainView extends React.Component {
       // Initial state is set to null
       movies: [],
       selectedMovie: null,
-      user: null
+      user: null,
+      register: null
     }
   }
 
@@ -44,16 +45,16 @@ export class MainView extends React.Component {
     });
   }
 
-  onRegistered(user) {
+  onRegistered(register) {
     this.setState({
-      user 
+      register 
     });
   }
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie, user, register } = this.state;
 
-    if (!user) return <RegistrationView onRegistered={user => this.onRegistered(user)} />;
+    if (!register) return <RegistrationView onRegistered={register => this.onRegistered(register)} />;
 
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
