@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 export class MovieView extends React.Component {
   keypressCallback(event){
@@ -37,3 +38,18 @@ export class MovieView extends React.Component {
     )
   }
 }
+
+MovieView.propTypes = {
+  movie: propTypes.shape({
+    Title: propTypes.string.isRequired,
+    Description: propTypes.string.isRequired,
+    ImagePath: propTypes.string.isRequired,
+    Genre: propTypes.shape({
+      Name: propTypes.string
+    }),
+    Director: propTypes.shape({
+      Name: propTypes.string
+    })
+  })
+};
+
