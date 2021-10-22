@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-// import MovieCard
+// import components
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -11,8 +12,10 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
+      // Initial state is set to null
       movies: [],
-      selectedMovie: null
+      selectedMovie: null,
+      user: null
     }
   }
 
@@ -28,12 +31,22 @@ export class MainView extends React.Component {
       });
   }
 
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({ selectedMovie: newSelectedMovie});
+  setSelectedMovie(movie) {
+    this.setState({
+      selectedMovie: movie
+    });
+  }
+
+  onLoggedIn(user) {
+    this.setState({
+      user 
+    });
   }
 
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user } = this.state;
+
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
     if (movies.length === 0) return <div className="main-view" />;
 
@@ -41,7 +54,9 @@ export class MainView extends React.Component {
       <div className="main-view">
         {selectedMovie
           ?  <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie)}} />)}
+          : movies.map(movie => (<MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie)}} />
+          ))
+        }
       </div>
     );
   }
