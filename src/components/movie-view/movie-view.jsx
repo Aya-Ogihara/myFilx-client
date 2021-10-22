@@ -1,10 +1,12 @@
 import React from 'react';
 
 export class MovieView extends React.Component {
+  keypressCallback(event){
+    console.log(event.key);
+  }
+
   componentDidMount() {
-    document.addEventListener('keypress', event => {
-      console.log(event.key);
-    })
+    document.addEventListener('keypress', this.keypressCallback);
   }
 
   render() {
@@ -24,11 +26,11 @@ export class MovieView extends React.Component {
         </div>
         <div className="movie-genre">
           <span className="label">Genre: </span>
-          <span className="value">{movie.Genre}</span>
+          <span className="value">{movie.Genre.Name}</span>
         </div>
         <div className="movie-director">
           <span className="label">Director: </span>
-          <span className="value">{movie.Director}</span>
+          <span className="value">{movie.Director.Name}</span>
         </div>
         <button onClick={() => { onBackClick(null); }}>Back</button>
       </div>
