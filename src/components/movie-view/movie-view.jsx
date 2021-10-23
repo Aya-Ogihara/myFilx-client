@@ -12,10 +12,13 @@ export class MovieView extends React.Component {
 
   render() {
     const {movie, onBackClick} = this.props;
+    const style = {
+      width: '200px'
+    }
     return (
       <div className="movie-view">
         <div className="movie-image">
-          <img src={movie.ImagePath} alt={movie.Title}/>
+          <img src={movie.ImagePath} alt={movie.Title} crossOrigin="anonymous" style={style} />
         </div>
         <div className="movie-title">
           <span className="label">Title: </span>
