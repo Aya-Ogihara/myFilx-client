@@ -18,12 +18,12 @@ export function LoginView(props) {
       <h1>Existing user login</h1>
       <label>
         Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder={"Please enter your username"} required />
       </label>
       <br/>
       <label>
         Password:
-        <input type="text" value={password} onChange={e => setPassword(e.target.value)} />
+        <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder={"Please enter your password"}required />
       </label>
       <br/>
       <button type="submit" onClick={handleSubmit}>Submit</button>

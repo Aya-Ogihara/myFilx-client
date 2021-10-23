@@ -25537,6 +25537,8 @@ function LoginView(props) {
                         value: username,
                         onChange: (e)=>setUsername(e.target.value)
                         ,
+                        placeholder: "Please enter your username",
+                        required: true,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 21
@@ -25561,10 +25563,12 @@ function LoginView(props) {
                 children: [
                     "Password:",
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
+                        type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value)
                         ,
+                        placeholder: "Please enter your password",
+                        required: true,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 26
@@ -25610,7 +25614,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","prop-types":"1tgq3"}],"aP2YV":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"aP2YV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8dd4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25666,6 +25670,8 @@ function RegistrationView(props) {
                         value: username,
                         onChange: (e)=>setUsername(e.target.value)
                         ,
+                        placeholder: "Please set your username",
+                        required: true,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
                             lineNumber: 23
@@ -25690,10 +25696,12 @@ function RegistrationView(props) {
                 children: [
                     "*Password:",
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
+                        type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value)
                         ,
+                        placeholder: "Please set your password",
+                        required: true,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
                             lineNumber: 28
@@ -25718,10 +25726,12 @@ function RegistrationView(props) {
                 children: [
                     "*Email:",
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
+                        type: "email",
                         value: email,
                         onChange: (e)=>setEmail(e.target.value)
                         ,
+                        placeholder: "example@mail.com",
+                        required: true,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
                             lineNumber: 33
@@ -25746,7 +25756,7 @@ function RegistrationView(props) {
                 children: [
                     "Birthday:",
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
+                        type: "date",
                         value: birthday,
                         onChange: (e)=>setBirthday(e.target.value)
                         ,
@@ -25797,6 +25807,6 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","prop-types":"1tgq3"}],"jUTZ8":[function() {},{}]},["lHMdM","5sEhf","dLPEP"], "dLPEP", "parcelRequirefe6d")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"jUTZ8":[function() {},{}]},["lHMdM","5sEhf","dLPEP"], "dLPEP", "parcelRequirefe6d")
 
 //# sourceMappingURL=index.6701a6e1.js.map
