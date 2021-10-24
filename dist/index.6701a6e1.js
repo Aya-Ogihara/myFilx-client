@@ -22745,22 +22745,17 @@ parcelHelpers.export(exports, "MainView", ()=>MainView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-<<<<<<< HEAD
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 // import components
 var _loginView = require("../login-view/login-view");
 var _registrationView = require("../registration-view/registration-view");
-=======
-// import MovieCard
->>>>>>> master
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-<<<<<<< HEAD
             // Initial state is set to null
             movies: [],
             selectedMovie: null,
@@ -22812,69 +22807,19 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }));
-=======
-            movies: [
-                {
-                    _id: 1,
-                    Title: 'Inception',
-                    Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg',
-                    Genre: 'Action',
-                    Director: 'Christopher Nolan'
-                },
-                {
-                    _id: 2,
-                    Title: 'The Shawshank Redemption',
-                    Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg',
-                    Genre: '',
-                    Director: 'Franc Darabont'
-                },
-                {
-                    _id: 3,
-                    Title: 'Gladiator',
-                    Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg',
-                    Genre: 'Adventure',
-                    Director: 'Ridley Scott'
-                }
-            ],
-            selectedMovie: null
-        };
-    }
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
-    render() {
-        const { movies , selectedMovie  } = this.state;
-        // if (selectedMovie) return <MovieView movie={selectedMovie} />;
->>>>>>> master
         if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
                 lineNumber: 61
             },
             __self: this
-=======
-                lineNumber: 32
-            },
-            __self: this,
-            children: "The list is empty!"
->>>>>>> master
         }));
         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
                 lineNumber: 64
-=======
-                lineNumber: 35
->>>>>>> master
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -22884,30 +22829,17 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
                     lineNumber: 66
-=======
-                    lineNumber: 37
->>>>>>> master
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                     movie: movie,
-<<<<<<< HEAD
                     onMovieClick: (newSelectedMovie)=>{
                         this.setSelectedMovie(newSelectedMovie);
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 67
-=======
-                    onMovieClick: (movie1)=>{
-                        this.setSelectedMovie(movie1);
-                    },
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 38
->>>>>>> master
                     },
                     __self: this
                 }, movie._id)
@@ -22921,11 +22853,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< HEAD
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","axios":"iYoWk","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV"}],"6EiBJ":[function(require,module,exports) {
-=======
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"6EiBJ":[function(require,module,exports) {
->>>>>>> master
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22939,11 +22867,8 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-<<<<<<< HEAD
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-=======
->>>>>>> master
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
@@ -22954,37 +22879,26 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-<<<<<<< HEAD
                 lineNumber: 7
-=======
-                lineNumber: 6
->>>>>>> master
             },
             __self: this,
             children: movie.Title
         }));
     }
 }
-<<<<<<< HEAD
 MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
-=======
->>>>>>> master
 
   $parcel$ReactRefreshHelpers$4249.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< HEAD
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","prop-types":"1tgq3"}],"11nWC":[function(require,module,exports) {
-=======
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"11nWC":[function(require,module,exports) {
->>>>>>> master
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -23136,7 +23050,6 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-<<<<<<< HEAD
 },{"react-refresh/runtime":"hkBxb"}],"1tgq3":[function(require,module,exports) {
 var ReactIs = require('react-is');
 // By explicitly using `prop-types` you are opting into new development behavior.
@@ -23817,9 +23730,6 @@ printWarning = function(text) {
 module.exports = checkPropTypes;
 
 },{"./lib/ReactPropTypesSecret":"lYuBM"}],"ikZdr":[function(require,module,exports) {
-=======
-},{"react-refresh/runtime":"hkBxb"}],"ikZdr":[function(require,module,exports) {
->>>>>>> master
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -24020,7 +23930,6 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< HEAD
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8","prop-types":"1tgq3"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
@@ -25904,8 +25813,5 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"jUTZ8":[function() {},{}]},["lHMdM","5sEhf","dLPEP"], "dLPEP", "parcelRequirefe6d")
-=======
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"11nWC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"XEeE8"}],"jUTZ8":[function() {},{}]},["lHMdM","5sEhf","dLPEP"], "dLPEP", "parcelRequirefe6d")
->>>>>>> master
 
 //# sourceMappingURL=index.6701a6e1.js.map
