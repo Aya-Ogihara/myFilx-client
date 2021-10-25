@@ -64,10 +64,10 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className='main-view' />;
 
     return (
-      <Row className='justify-content-md-center main-view'>
+      <Row className='justify-content-md-center main-view mt-5'>
         {selectedMovie
           ? ( 
-            <Col md={10} lg={8}>
+            <Col md={12} lg={8}>
               <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
             </Col>
             )
