@@ -6,6 +6,9 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+// Rect Bootstrap
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 // Create MainView component
 export class MainView extends React.Component {
@@ -58,16 +61,23 @@ export class MainView extends React.Component {
 
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
-    if (movies.length === 0) return <div className="main-view" />;
+    if (movies.length === 0) return <div className='main-view' />;
 
     return (
-      <div className="main-view">
+      <Row className='justify-content-md-center main-view mt-5'>
         {selectedMovie
-          ?  <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (<MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie)}} />
-          ))
+          ? ( 
+            <Col md={12} lg={8}>
+              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            </Col>
+            )
+          : movies.map(movie => (
+            <Col sm={12} md={6} lg={4} xl={3} className='mb-5'>
+              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie)}} />
+            </Col>
+          ))         
         }
-      </div>
+      </Row>
     );
   }
 }
