@@ -1,5 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
+// Rect Bootstrap
+import Button from 'react-bootstrap/Button';
 
 export class MovieView extends React.Component {
   keypressCallback(event){
@@ -17,7 +19,7 @@ export class MovieView extends React.Component {
     }
     return (
       <div className="movie-view">
-        <div className="movie-image">
+        <div className="movie-image" style={{textAlign:'center'}}>
           <img src={movie.ImagePath} alt={movie.Title} crossOrigin="anonymous" style={style} />
         </div>
         <div className="movie-title">
@@ -36,7 +38,8 @@ export class MovieView extends React.Component {
           <span className="label">Director: </span>
           <span className="value">{movie.Director.Name}</span>
         </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button variant="danger" onClick={()=> onBackClick(null)} >Back to main</Button>
+        
       </div>
     )
   }
