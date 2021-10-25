@@ -19,7 +19,7 @@ export function LoginView(props) {
   }
 
   return (
-    <Row className='login-form justify-content-md-center' >
+    <Row className='login-form justify-content-md-center mt-5' >
       <h1 style={{textAlign: 'center'}}> &#127916; myFlix Login Page &#127909;</h1>
       <Form style={{ width: '30rem' }}>
         <Form.Group className='mb-3 mt-3' controlId='formUsername'>

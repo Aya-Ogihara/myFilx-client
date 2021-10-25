@@ -25970,7 +25970,7 @@ function LoginView(props) {
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-        className: "login-form justify-content-md-center",
+        className: "login-form justify-content-md-center mt-5",
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
             lineNumber: 22
@@ -26723,7 +26723,7 @@ function RegistrationView(props) {
         /* Send a request to the server for authentication */ /* then call props.onRegistered(username) */ props.onRegistered(username);
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-        className: "login-form justify-content-md-center",
+        className: "login-form justify-content-md-center mt-5",
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
             lineNumber: 23
@@ -26783,7 +26783,7 @@ function RegistrationView(props) {
                         ]
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                        className: "mb-4",
+                        className: "mb-3",
                         controlId: "formPassword",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
@@ -26845,7 +26845,7 @@ function RegistrationView(props) {
                         ]
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                        className: "mb-3",
+                        className: "mb-4",
                         controlId: "formBirthday",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",

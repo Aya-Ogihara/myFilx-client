@@ -20,7 +20,7 @@ export function RegistrationView(props) {
   }
 
   return (
-    <Row className='login-form justify-content-md-center' >
+    <Row className='login-form justify-content-md-center mt-5' >
       <h1 style={{textAlign: 'center'}}> &#127916; myFlix Registration Page &#127909;</h1>
       <Form style={{ width: '30rem' }}>
         <Form.Group className="mb-3 mt-3" controlId='formUsername'>
@@ -28,7 +28,7 @@ export function RegistrationView(props) {
           <Form.Control type='text' onChange={e => setUsername(e.target.value)}  placeholder='Please set your username' required />
         </Form.Group>
 
-        <Form.Group className="mb-4" controlId='formPassword'>
+        <Form.Group className="mb-3" controlId='formPassword'>
           <Form.Label>*Password:</Form.Label>
           <Form.Control type='password' onChange={e => setEmail(e.target.value)} placeholder='Please set your password' required />
         </Form.Group>
@@ -38,7 +38,7 @@ export function RegistrationView(props) {
           <Form.Control type='email' onChange={e => setPassword(e.target.value)} placeholder='example@mail.com' required />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId='formBirthday'>
+        <Form.Group className="mb-4" controlId='formBirthday'>
           <Form.Label>Birthday:</Form.Label>
           <Form.Control type='date' onChange={e => setBirthday(e.target.value)} />
         </Form.Group>
