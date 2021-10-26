@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 // Rect Bootstrap
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
@@ -15,7 +16,7 @@ export class MovieView extends React.Component {
   }
 
   render() {
-    const {movie, onBackClick} = this.props;
+    const { movie } = this.props;
     const style = {
       width: '200px'
     }
@@ -23,13 +24,21 @@ export class MovieView extends React.Component {
       <Card className='mb-5'>
       <Card.Header className="flex movie-title">
         <h1>{movie.Title}</h1>
-        <Badge bg="secondary">{movie.Genre.Name}</Badge>
+        <Link to={`genres/${movie.Genre.Name}`}>
+          <Badge bg="secondary">{movie.Genre.Name}</Badge>
+        </Link>
       </Card.Header>
       <Card.Body>
         <Card.Img variant="top" src={movie.ImagePath} crossOrigin='anonymous' alt={movie.Title}/>
-        <Card.Subtitle as='h3' className="mt-3 text-muted">Director: {movie.Director.Name}</Card.Subtitle>
+        <Card.Subtitle as='h3' className="mt-3 text-muted">
+          <Link to={`directors/${movie.Director.Name}`}>
+            Director: {movie.Director.Name}
+          </Link>
+        </Card.Subtitle>
         <Card.Text className='mt-3 mb-4'>{movie.Description}</Card.Text>
-        <Button variant="danger" onClick={()=> onBackClick(null)} >Back to main</Button>
+        <Link to={'/'}>
+        <Button variant="danger">Back to main</Button>
+        </Link>
       </Card.Body>
     </Card>
     )

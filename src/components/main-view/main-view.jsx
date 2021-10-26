@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // import components
 import { LoginView } from '../login-view/login-view';
@@ -19,10 +20,22 @@ export class MainView extends React.Component {
     this.state = {
       // Initial state is set to null
       movies: [],
-      selectedMovie: null,
       user: null,
-      register: null
     }
+  }
+
+  getMovies(token) {
+    axios.get('https://aya-myflix.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch( e => {
+      console.log(e)
+    });
   }
 
   componentDidMount() {
@@ -66,20 +79,6 @@ export class MainView extends React.Component {
     });
   }
 
-  getMovies(token) {
-    axios.get('https://aya-myflix.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}`}
-    })
-    .then(response => {
-      this.setState({
-        movies: response.data
-      });
-    })
-    .catch( e => {
-      console.log(e)
-    });
-  }
-
   render() {
     const { movies, selectedMovie, user, register } = this.state;
 
@@ -90,23 +89,25 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className='main-view' />;
 
     return (
-      <Row className='justify-content-md-center main-view mt-5'>
-        {selectedMovie
-          ? ( 
-            <Col md={12} lg={8}>
-              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-            </Col>
-            )
-          : movies.map(movie => (
-            <Col sm={12} md={6} lg={4} xl={3} className='mb-5'>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie)}} />
-            </Col>
-          ))         
-        }
-        <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} >
-          Logout
-        </Button>
-      </Row>
+      <Router>
+        <Row className='justify-content-md-center main-view mt-5'>
+          <Route exact path='/' render={() => {
+            return movies.map(m => (
+              <Col sm={12} md={6} lg={4} xl={3} className='mb-5' key={m._id}>
+                <MovieCard movie={m} />
+              </Col>
+            ))
+          }} />
+          <Route path='/movies/:movieId' render={({ match, history }) => {
+            return <Col md={12} lg={8}>
+            <MovieView movie={movies.find(m=> m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+          </Col>
+          }} />
+          <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} >
+            Logout
+          </Button>
+        </Row>
+      </Router>
     );
   }
 }

@@ -30,7 +30,7 @@ export function RegistrationView(props) {
 
         <Form.Group className="mb-3" controlId='formPassword'>
           <Form.Label>*Password:</Form.Label>
-          <Form.Control type='password' onChange={e => setEmail(e.target.value)} placeholder='Please set your password' minlength='8' required />
+          <Form.Control type='password' onChange={e => setEmail(e.target.value)} placeholder='Please set your password' minLength='8' required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId='formEmail'>
