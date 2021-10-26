@@ -22913,10 +22913,10 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
-        // return <div className="movie-card" onClick={() => { onMovieClick(movie); }}>{movie.Title}</div>
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
             style: {
-                width: '18rem'
+                width: '18rem',
+                height: '41rem'
             },
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
@@ -22928,6 +22928,9 @@ class MovieCard extends _reactDefault.default.Component {
                     variant: "top",
                     src: movie.ImagePath,
                     crossOrigin: "anonymous",
+                    style: {
+                        height: '18rem'
+                    },
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 13
@@ -22950,6 +22953,11 @@ class MovieCard extends _reactDefault.default.Component {
                             children: movie.Title
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                            style: {
+                                height: '15rem',
+                                textOverflow: 'ellipsis',
+                                overflow: 'hidden'
+                            },
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 16
@@ -24245,6 +24253,7 @@ class MovieView extends _reactDefault.default.Component {
             width: '200px'
         };
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
+            className: "mb-5",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 23

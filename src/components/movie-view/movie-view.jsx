@@ -20,7 +20,7 @@ export class MovieView extends React.Component {
       width: '200px'
     }
     return (
-      <Card>
+      <Card className='mb-5'>
       <Card.Header className="flex movie-title">
         <h1>{movie.Title}</h1>
         <Badge bg="secondary">{movie.Genre.Name}</Badge>

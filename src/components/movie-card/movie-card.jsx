@@ -7,13 +7,13 @@ import Button from 'react-bootstrap/Button';
 export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
-    // return <div className="movie-card" onClick={() => { onMovieClick(movie); }}>{movie.Title}</div>
+    
     return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={movie.ImagePath} crossOrigin='anonymous' />
+      <Card style={{ width: '18rem', height: '41rem'}}>
+        <Card.Img variant="top" src={movie.ImagePath} crossOrigin='anonymous' style={{height: '18rem'}} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
-          <Card.Text>{movie.Description}</Card.Text>
+          <Card.Text style={{height: '15rem', textOverflow: 'ellipsis', overflow: 'hidden'}}>{movie.Description}</Card.Text>
           <Button variant="danger" onClick={()=> onMovieClick(movie)}>More details</Button>
         </Card.Body>
       </Card>
