@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
+import axios from 'axios';
 // Rect Bootstrap
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
@@ -12,11 +13,18 @@ export function LoginView(props) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
-  }
+    axios.post('https://aya-myflix.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data)
+    })
+    .catch(e => {
+      console.log('No user found')
+    });
+  };
 
   return (
     <Row className='login-form justify-content-md-center mt-5' >

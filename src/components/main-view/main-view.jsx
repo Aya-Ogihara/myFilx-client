@@ -9,6 +9,7 @@ import { MovieView } from '../movie-view/movie-view';
 // Rect Bootstrap
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 // Create MainView component
 export class MainView extends React.Component {
@@ -25,15 +26,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://aya-myflix.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken)
+    }
   }
 
   setSelectedMovie(movie) {
@@ -42,15 +41,42 @@ export class MainView extends React.Component {
     });
   }
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user 
+      user: authData.user.Username
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
 
   onRegistered(register) {
     this.setState({
       register 
+    });
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
+  getMovies(token) {
+    axios.get('https://aya-myflix.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch( e => {
+      console.log(e)
     });
   }
 
@@ -77,6 +103,9 @@ export class MainView extends React.Component {
             </Col>
           ))         
         }
+        <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} >
+          Logout
+        </Button>
       </Row>
     );
   }
