@@ -26700,7 +26700,7 @@ var _badgeDefault = parcelHelpers.interopDefault(_badge);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 class MovieView extends _reactDefault.default.Component {
-    addFavoritelist() {
+    addFavorite() {
         const token = localStorage.getItem('token');
         const user = localStorage.getItem('user');
         _axiosDefault.default.post(`https://aya-myflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {
@@ -26815,7 +26815,7 @@ class MovieView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                             variant: "danger",
                             value: movie._id,
-                            onClick: ()=>this.addFavoritelist()
+                            onClick: ()=>this.addFavorite()
                             ,
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",

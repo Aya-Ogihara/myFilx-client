@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 export class MovieView extends React.Component {
 
-  addFavoritelist() {
+  addFavorite() {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
 
@@ -49,7 +49,7 @@ export class MovieView extends React.Component {
           </Link>
         </Card.Subtitle>
         <Card.Text className='mt-3 mb-4'>{movie.Description}</Card.Text>
-        <Button variant="danger" value={movie._id} onClick={() => this.addFavoritelist()}>Add to my favorite movie list</Button>
+        <Button variant="danger" value={movie._id} onClick={() => this.addFavorite()}>Add to my favorite movie list</Button>
         <Link to={'/'}>
         <Button variant="outline-danger" style={{ display: 'inline-block', marginLeft: '10px'}}>Return to movie list</Button>
         </Link>
