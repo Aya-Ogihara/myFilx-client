@@ -1,9 +1,13 @@
 import React from 'react'
 
-export const UserInfo = () => {
+export const UserInfo = ({ name, email }) => {
+
   return (
-    <div>
-      userInfo
-    </div>
+    <>
+      <p>User: {name}</p>
+      <p>Email: {email}</p>
+    </>
   )
 }
+
+
