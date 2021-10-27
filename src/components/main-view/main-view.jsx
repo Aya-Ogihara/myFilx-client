@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 // import components
+import { Navbar } from '../navbar/navbar';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -61,19 +62,13 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-  }
 
   render() {
-    const { movies, user, director } = this.state;
+    const { movies, user } = this.state;
 
     return (
       <Router>
+        <Navbar />
         <Row className='justify-content-md-center main-view mt-5'>
 
           {/* Movies -- Top page*/}
@@ -87,7 +82,6 @@ export class MainView extends React.Component {
               <Col sm={12} md={6} lg={4} xl={3} className='mb-5'key={m._id} >
                 <MovieCard  movie={m} />
               </Col>
-              <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} > Logout</Button>
               </>
             ))
           }} />
