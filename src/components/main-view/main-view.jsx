@@ -48,12 +48,6 @@ export class MainView extends React.Component {
     }
   }
 
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
-
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -65,12 +59,6 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  onRegistered(register) {
-    this.setState({
-      register 
-    });
-  }
-
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -80,7 +68,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
+    const { movies, user } = this.state;
 
     return (
       <Router>
@@ -113,6 +101,15 @@ export class MainView extends React.Component {
             <MovieView movie={movies.find(m=> m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
           </Col>
           }} />
+
+          {/* User profile */}
+          <Route path='/users/:username' render={(history) => {
+            if (!user) return <Col>
+            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+          </Col> 
+            if (movies.length === 0) return <div className='main-view' />
+            
+            }} />
           <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} >
             Logout
           </Button>
