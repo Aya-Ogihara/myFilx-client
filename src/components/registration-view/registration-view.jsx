@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
+import axios from 'axios';
 // Rect Bootstrap
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
@@ -13,10 +14,20 @@ export function RegistrationView(props) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    /* Send a request to the server for authentication */
-    /* then call props.onRegistered(username) */
-    props.onRegistered(username);
+    axios.post('https://aya-myflix.herokuapp.com/users', {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    })
+    .then(response => {
+      const data = response.data;
+      console.log(data)
+      window.open('/', '_self');
+    })
+    .catch(e => {
+      console.log('Error registering the user')
+    });
   }
 
   return (
