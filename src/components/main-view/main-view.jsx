@@ -10,6 +10,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+import { ProfileView } from '../profile-view/profile-view';
 // Rect Bootstrap
 import { Row, Col } from 'react-bootstrap';
 
@@ -122,12 +123,12 @@ export class MainView extends React.Component {
           }} />
 
           {/* User profile */}
-          <Route path='/users/:username' render={(history) => {
+          <Route path='/profile' render={(history) => {
             if (!user) return <Col>
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
           </Col> 
             if (movies.length === 0) return <div className='main-view' />
-            
+            return <ProfileView />
             }} />
         </Row>
       </Router>
