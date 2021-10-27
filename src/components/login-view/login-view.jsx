@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // Rect Bootstrap
-import Row from 'react-bootstrap/Row';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
+import { Row, Form, Button } from 'react-bootstrap';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -29,7 +27,7 @@ export function LoginView(props) {
   return (
     <Row className='login-form justify-content-md-center mt-5' >
       <h1 style={{textAlign: 'center'}}> &#127916; myFlix Login Page &#127909;</h1>
-      <Form style={{ width: '30rem' }}>
+      <Form style={{ width: '30rem' }} className='mb-3'>
         <Form.Group className='mb-3 mt-3' controlId='formUsername'>
           <Form.Label>*Username:</Form.Label>
           <Form.Control type='text' onChange={e => setUsername(e.target.value)}  placeholder='Please enter your username' required />
@@ -40,10 +38,16 @@ export function LoginView(props) {
           <Form.Control type='password' onChange={e => setPassword(e.target.value)} placeholder='Please enter your password' required />
         </Form.Group>
 
-        <Button variant='danger' type='submit'  onClick={handleSubmit} >
-          Login
-        </Button>
+        <Button variant='danger' type='submit' onClick={handleSubmit} >Login</Button>
       </Form>
+      <div>
+      <hr></hr>
+      <h3 style={{textAlign: 'center'}}>Do not have myFlix account?</h3>
+      <Link to={'/register'} style={{textDecoration: 'none'}}>
+        <Button variant='outline-danger' style={{width: '20rem', display: 'block', margin: '30px auto'}}>Create myFlix account</Button>
+      </Link>
+      </div>
+      
     </Row>
   )
 }
