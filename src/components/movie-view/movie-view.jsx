@@ -18,8 +18,9 @@ export class MovieView extends React.Component {
     method: 'POST'
   })
   .then(() => {
-    alert('The movie is added your favorite movie list')
     console.log(`User: ${user} Movie ID: ${this.props.movie._id}`)
+    alert('The movie is added your favorite movie list')
+    
   })
   .catch( e => {
     console.log(e)
