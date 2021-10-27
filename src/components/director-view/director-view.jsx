@@ -22,13 +22,12 @@ export function DirectorView(props) {
       </Card.Text>
       <Button variant="danger" onClick={() => onBackClick()}>Return to the movie</Button>
       <Link to={'/'}>
-      <Button variant="outline-danger">Go to movie list</Button>
+      <Button variant="outline-danger" style={{ display: 'inline-block', marginLeft: '10px'}}>Go to movie list</Button>
       </Link>
       
     </Card.Body>
   </Card>
   )
-
 }
 
 DirectorView.propTypes = {

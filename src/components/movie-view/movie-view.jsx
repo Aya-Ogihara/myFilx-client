@@ -30,7 +30,7 @@ export class MovieView extends React.Component {
         </Card.Subtitle>
         <Card.Text className='mt-3 mb-4'>{movie.Description}</Card.Text>
         <Link to={'/'}>
-        <Button variant="danger">Back to main</Button>
+        <Button variant="danger">Return to movie list</Button>
         </Link>
       </Card.Body>
     </Card>
