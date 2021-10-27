@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 // Rect Bootstrap
 import Card from 'react-bootstrap/Card';
@@ -8,11 +9,28 @@ import Button from 'react-bootstrap/Button';
 
 export class MovieView extends React.Component {
 
+  addFavoritelist(_id) {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+
+    axios.post(`https://aya-myflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,{}, {
+    headers: { Authorization: `Bearer ${token}`},
+    method: 'POST'
+  })
+  .then(() => {
+    alert(`The movie is added your favorite movie list`)
+  })
+  .catch( e => {
+    console.log(e)
+  });
+  }
+
   render() {
     const { movie } = this.props;
     const style = {
       width: '200px'
     }
+
     return (
       <Card className='mb-5'>
       <Card.Header className="flex movie-title">
@@ -29,9 +47,11 @@ export class MovieView extends React.Component {
           </Link>
         </Card.Subtitle>
         <Card.Text className='mt-3 mb-4'>{movie.Description}</Card.Text>
+        <Button variant="danger" value={movie._id} onClick={(e) => this.addFavoritelist(e, movie)}>Add to my favorite movie list</Button>
         <Link to={'/'}>
-        <Button variant="danger">Return to movie list</Button>
+        <Button variant="outline-danger" style={{ display: 'inline-block', marginLeft: '10px'}}>Return to movie list</Button>
         </Link>
+        
       </Card.Body>
     </Card>
     )
