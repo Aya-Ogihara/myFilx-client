@@ -7,6 +7,7 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { DirectorView } from '../director-view/director-view';
 // Rect Bootstrap
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -68,7 +69,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies, user, director } = this.state;
 
     return (
       <Router>
@@ -81,9 +82,12 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className='main-view' />
             return movies.map(m => (
-              <Col sm={12} md={6} lg={4} xl={3} className='mb-5' key={m._id}>
-                <MovieCard movie={m} />
+              <>
+              <Col sm={12} md={6} lg={4} xl={3} className='mb-5'key={m._id} >
+                <MovieCard  movie={m} />
               </Col>
+              <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} > Logout</Button>
+              </>
             ))
           }} />
 
@@ -102,6 +106,17 @@ export class MainView extends React.Component {
           </Col>
           }} />
 
+          {/* Director view */}
+          <Route path='/directors/:name' render={({ match, history} ) => {
+            if (!user) return <Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col> 
+            if (movies.length === 0) return <div className='main-view' />
+            return <Col md={12} lg={8}>
+              <DirectorView director={movies.find(m=> m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+            </Col>
+          }} />
+
           {/* User profile */}
           <Route path='/users/:username' render={(history) => {
             if (!user) return <Col>
@@ -110,9 +125,6 @@ export class MainView extends React.Component {
             if (movies.length === 0) return <div className='main-view' />
             
             }} />
-          <Button variant='outline-danger' type='submit'  onClick={() => { this.onLoggedOut() }} >
-            Logout
-          </Button>
         </Row>
       </Router>
     );
