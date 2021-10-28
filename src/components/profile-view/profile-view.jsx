@@ -238,7 +238,7 @@ export class ProfileView extends React.Component {
                     You have no favorite movies.
                   </div>
                 )}
-                <Row className='favorites-movies '>
+                <Row className='favorites-movies justify-content-md-center'>
                   {favoriteMovies.length > 0 &&
                     movies.map((movie) => {
                       if (

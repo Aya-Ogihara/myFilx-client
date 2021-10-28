@@ -41090,7 +41090,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             children: "You have no favorite movies."
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                                            className: "favorites-movies ",
+                                            className: "favorites-movies justify-content-md-center",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 241
