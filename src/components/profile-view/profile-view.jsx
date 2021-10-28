@@ -32,7 +32,6 @@ export class ProfileView extends React.Component {
         method: 'GET'
       })
       .then(response => {
-        console.log(response)
         this.setState({
           Username: response.data.Username,
           Email: response.data.Email,
@@ -54,11 +53,11 @@ export class ProfileView extends React.Component {
         {
           headers: { Authorization: `Bearer ${token}` },
           method: 'DELETE'
-        }
+        },
+        console.log(`https://aya-myflix.herokuapp.com/users/${user}/movies/${movie._id}`)
       )
       .then(() => {
-        alert('Movie was removed');
-        this.componentDidMount();
+        alert('The movie was removed');
       })
       .catch(e => {
         console.log(e);
@@ -135,7 +134,6 @@ export class ProfileView extends React.Component {
   render() {
     const { Username, Email, Birthday, favoriteMovies} = this.state;
     const { movies } = this.props;
-    console.log(movies);
     return (
       <Container>
         <Row>
@@ -228,7 +226,7 @@ export class ProfileView extends React.Component {
         <Card className='mt-4'>
           <Row>
             <Col xs={12} className='p-4'>
-              <h4>Favorite Movies</h4>
+              <h4 style={{textAlign: 'center'}}>Favorite Movies</h4>
             </Col>
           </Row>
 
@@ -236,7 +234,7 @@ export class ProfileView extends React.Component {
             <Col>
               <Card.Body>
                 {favoriteMovies.length === 0 && (
-                  <div className='text-center'>
+                  <div style={{textAlign: 'center'}}>
                     You have no favorite movies.
                   </div>
                 )}
@@ -250,27 +248,25 @@ export class ProfileView extends React.Component {
                         return (
                             <Card
                               className='favorites-item card-content'
-                              style={{ width: '16rem' }}
+                              style={{ width: '18rem' }}
                               key={movie._id}
                             >
                               <Card.Img
-                                style={{ width: '18rem' }}
                                 className='movieCard'
                                 variant='top'
-                                src={movie.ImageURL}
+                                src={movie.ImagePath}
+                                crossOrigin='anonymous'
+                                alt={movie.Title}
                               />
                               <Card.Body>
                                 <Card.Title className='movie-card-title'>
                                   {movie.Title}
                                 </Card.Title>
                                 <Button
-                                  size='sm'
                                   className='profile-button remove-favorite'
                                   variant='outline-danger'
                                   value={movie._id}
-                                  onClick={(e) =>
-                                    this.removeFavorite()
-                                  }
+                                  onClick={() => this.removeFavorite()}
                                 >
                                   Remove
                                 </Button>
