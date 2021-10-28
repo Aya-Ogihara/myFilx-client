@@ -25,20 +25,19 @@ export class ProfileView extends React.Component {
 
   getUser() {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    console.log(`User: ${username} Token: ${token}`)
+    const user = localStorage.getItem('user');
     axios
-      .get(`'https://aya-myflix.herokuapp.com/users/${username}`,{
+      .get(`https://aya-myflix.herokuapp.com/users/${user}`, {
         headers: { Authorization: `Bearer ${token}` },
         method: 'GET'
       })
-      .then((response) => {
+      .then(response => {
         console.log(response)
         this.setState({
           Username: response.data.Username,
           Email: response.data.Email,
           Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies,
+          favoriteMovies: response.data.FavoriteMovies,
         });
       })
       .catch(e => {
@@ -134,10 +133,9 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { favoriteMovies, validated } = this.state;
-    const { Username, Email, Password, Birthday } = this.setState;
+    const { Username, Email, Birthday, favoriteMovies} = this.state;
     const { movies } = this.props;
-
+    console.log(movies);
     return (
       <Container>
         <Row>
@@ -149,7 +147,6 @@ export class ProfileView extends React.Component {
               </Card.Body>
               <ListGroup className='list-group-flush'>
                 <ListGroupItem>Username: {Username} </ListGroupItem>
-                <ListGroupItem>Password: {Password} </ListGroupItem>
                 <ListGroupItem>Email: {Email} </ListGroupItem>
                 <ListGroupItem>Birthday: {Birthday} </ListGroupItem>
                 <ListGroupItem>
@@ -251,7 +248,6 @@ export class ProfileView extends React.Component {
                         favoriteMovies.find((fav) => fav === movie._id)
                       ) {
                         return (
-                          <CardDeck className='movie-card-deck'>
                             <Card
                               className='favorites-item card-content'
                               style={{ width: '16rem' }}
@@ -280,7 +276,6 @@ export class ProfileView extends React.Component {
                                 </Button>
                               </Card.Body>
                             </Card>
-                          </CardDeck>
                         );
                       }
                     })}
