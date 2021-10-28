@@ -66,48 +66,33 @@ export class ProfileView extends React.Component {
       });
   }
 
-  handleUpdate(e, username, password, email, birthday) {
-    this.setState({
-      validated: null,
-    });
-
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.setState({
-        validated: true,
-      });
-      return;
-    }
+  handleUpdate(e) {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    console.log(`User: ${user} Token: ${token}`)
     e.preventDefault();
-
     axios
-      .put(`https://aya-myflix.herokuapp.com/users/${username}`, {
+      .put(`https://aya-myflix.herokuapp.com/users/${user}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
+        method: 'PUT',
         data: {
-          Name: newName ? newName : this.state.Name,
-          Username: newUsername ? newUsername : this.state.Username,
-          Password: newPassword ? newPassword : this.state.Password,
-          Email: newEmail ? newEmail : this.state.Email,
-          Birthday: newBirthday ? newBirthday : this.state.Birthday,
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday,
         },
       })
-      .then((response) => {
-        alert('Saved Changes');
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-        });
-        localStorage.setItem('user', this.state.Username);
-        window.open(`/users/${username}`, '_self');
+      .then(() => {
+        alert('Saved Changes. Please Re-login');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.open('/', '_self');
       })
       .catch(e => {
         console.log(e);
       });
   }
+
   setName(input) {
     this.Name = input;
   }
@@ -128,21 +113,20 @@ export class ProfileView extends React.Component {
     this.Birthday = input;
   }
 
-  handleDeleteUser(e) {
-    e.preventDefault();
-
+  handleDeleteUser() {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
     axios
       .delete(`https://aya-myflix.herokuapp.com/users/${username}`, {
         headers: { Authorization: `Bearer ${token}` },
+        method: 'DELETE'
       })
       .then(() => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         alert('Your account has been deleted.');
-        window.open(`/`, '_self');
+        window.open(`/register`, '_self');
       })
       .catch(e => {
         console.log(e);
@@ -161,7 +145,7 @@ export class ProfileView extends React.Component {
           <Col xs={12} sm={4}>
             <Card>
               <Card.Body>
-                <Card.Title>Profile Info</Card.Title>
+                <Card.Title>My Profile</Card.Title>
               </Card.Body>
               <ListGroup className='list-group-flush'>
                 <ListGroupItem>Username: {Username} </ListGroupItem>
@@ -171,7 +155,7 @@ export class ProfileView extends React.Component {
                 <ListGroupItem>
                   <Button
                   variant='outline-secondary'
-                  onClick={() => handleDeleteUser(e, user)}
+                  onClick={() => handleDeleteUser()}
                   >Delete Account</Button>
                 </ListGroupItem>
               </ListGroup>
@@ -186,21 +170,7 @@ export class ProfileView extends React.Component {
                 <Card.Body>
                   <Card.Title>Update</Card.Title>
 
-                  <Form
-                    noValidate
-                    validated={validated}
-                    className='update-form'
-                    onSubmit={(e) =>
-                      this.handleUpdate(
-                        e,
-                        this.Name,
-                        this.Username,
-                        this.Password,
-                        this.Email,
-                        this.Birthday
-                      )
-                    }
-                  >
+                  <Form>
                     <Form.Group controlId='formUsername'>
                       <Form.Label>Username:</Form.Label>
                       <Form.Control
@@ -247,7 +217,7 @@ export class ProfileView extends React.Component {
                         }
                       />
                     </Form.Group>
-                    <Button variant='danger' type='submit' className='mt-4'>
+                    <Button variant='danger' type='submit' className='mt-4' onClick={(e) => this.handleUpdate(e)}>
                       Update
                     </Button>
                   </Form>

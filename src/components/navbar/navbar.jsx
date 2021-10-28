@@ -12,15 +12,17 @@ export const Navbar = () => {
   }
 
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="/">myFlix</Navbar.Brand>
-        <Nav className="ml-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/profile">myProfile</Nav.Link>
-          <Button variant='outline-danger' type='submit' onClick={() => onLoggedOut() } > Logout</Button>
-        </Nav>
-      </Container>
-    </Navbar>
+    <header>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">myFlix</Navbar.Brand>
+          <Nav className="ml-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/profile">myProfile</Nav.Link>
+            <Button variant='outline-danger' type='submit' onClick={() => onLoggedOut() } > Logout</Button>
+          </Nav>
+        </Container>
+      </Navbar>
+    </header>
   )
 }
