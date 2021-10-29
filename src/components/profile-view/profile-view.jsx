@@ -44,20 +44,20 @@ export class ProfileView extends React.Component {
       });
   }
 
-  removeFavorite() {
+  removeFavorite(id) {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     axios
       .delete(
-        `https://aya-myflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
+        `https://aya-myflix.herokuapp.com/users/${user}/movies/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           method: 'DELETE'
         },
-        console.log(`https://aya-myflix.herokuapp.com/users/${user}/movies/${movie._id}`)
       )
       .then(() => {
         alert('The movie was removed');
+        this.componentDidMount() 
       })
       .catch(e => {
         console.log(e);
@@ -80,7 +80,14 @@ export class ProfileView extends React.Component {
         }
         
       })
-      .then(() => {
+      .then((res) => {
+        console.log(res.data)
+        this.setState({
+          Username: res.data.Username,
+          Password: res.data.Password,
+          Email: res.data.Email,
+          Birthday: res.data.Birthday,
+        })
         alert('Saved Changes. Please Re-login');
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -91,25 +98,20 @@ export class ProfileView extends React.Component {
       });
   }
 
-  setName(input) {
-    this.Name = input;
-    console.log(input)
-  }
-
   setUsername(input) {
-    this.Username = input;
+    this.state.Username = input;
   }
 
   setPassword(input) {
-    this.Password = input;
+    this.state.Password = input;
   }
 
   setEmail(input) {
-    this.Email = input;
+    this.state.Email = input;
   }
 
   setBirthday(input) {
-    this.Birthday = input;
+    this.state.Birthday = input;
   }
 
   handleDeleteUser() {
@@ -267,7 +269,7 @@ export class ProfileView extends React.Component {
                                   className='profile-button remove-favorite'
                                   variant='outline-danger'
                                   value={movie._id}
-                                  onClick={(e) => this.removeFavorite()}
+                                  onClick={() => this.removeFavorite(movie._id)}
                                 >
                                   Remove
                                 </Button>
