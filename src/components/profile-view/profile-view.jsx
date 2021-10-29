@@ -99,18 +99,22 @@ export class ProfileView extends React.Component {
 
   setUsername(value) {
     this.state.Username = value
+    console.log(value)
   }
 
   setPassword(value) {
     this.state.Password = value;
+    console.log(value)
   }
 
   setEmail(value) {
     this.state.Email = value;
+    console.log(value)
   }
 
   setBirthday(value) {
     this.state.Birthday = value;
+    console.log(value)
   }
 
   handleDeleteUser() {
