@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 // Rect Bootstrap
 import { Container, Navbar, Nav, Button} from 'react-bootstrap';
 
-export const Navbar = () => {
+export const HeaderSection = () => {
 
   onLoggedOut = () => {
     localStorage.removeItem('token');

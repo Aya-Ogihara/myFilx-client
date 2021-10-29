@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 // import components
-import { Navbar } from '../navbar/navbar';
+import { HeaderSection } from '../header-section/header-section';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -68,7 +68,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Navbar />
+        <HeaderSection />
         <Row className='justify-content-md-center main-view mt-5'>
 
           {/* Movies -- Top page*/}
