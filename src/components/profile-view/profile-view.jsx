@@ -78,7 +78,6 @@ export class ProfileView extends React.Component {
           Email: this.state.Email,
           Birthday: this.state.Birthday,
         }
-        
       })
       .then((res) => {
         console.log(res.data)
@@ -98,20 +97,20 @@ export class ProfileView extends React.Component {
       });
   }
 
-  setUsername(input) {
-    this.state.Username = input;
+  setUsername(value) {
+    this.state.Username = value
   }
 
-  setPassword(input) {
-    this.state.Password = input;
+  setPassword(value) {
+    this.state.Password = value;
   }
 
-  setEmail(input) {
-    this.state.Email = input;
+  setEmail(value) {
+    this.state.Email = value;
   }
 
-  setBirthday(input) {
-    this.state.Birthday = input;
+  setBirthday(value) {
+    this.state.Birthday = value;
   }
 
   handleDeleteUser() {
