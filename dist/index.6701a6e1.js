@@ -40543,9 +40543,9 @@ class ProfileView extends _reactDefault.default.Component {
             method: 'GET'
         }).then((response)=>{
             this.setState({
-                Username: response.data.Username,
-                Email: response.data.Email,
-                Birthday: response.data.Birthday,
+                username: response.data.Username,
+                email: response.data.Email,
+                birthday: response.data.Birthday,
                 favoriteMovies: response.data.FavoriteMovies
             });
         }).catch((e)=>{
@@ -40578,23 +40578,23 @@ class ProfileView extends _reactDefault.default.Component {
             },
             method: 'PUT',
             data: {
-                Username: this.state.Username,
-                Password: this.state.Password,
-                Email: this.state.Email,
-                Birthday: this.state.Birthday
+                username: this.state.Username,
+                password: this.state.Password,
+                email: this.state.Email,
+                birthday: this.state.Birthday
             }
         }).then((res)=>{
             console.log(res.data);
             this.setState({
-                Username: res.data.Username,
-                Password: res.data.Password,
-                Email: res.data.Email,
-                Birthday: res.data.Birthday
+                username: res.data.Username,
+                password: res.data.Password,
+                email: res.data.Email,
+                birthday: res.data.Birthday
             });
             alert('Saved Changes. Please Re-login');
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            window.open('/', '_self');
+        // localStorage.removeItem('token');
+        // localStorage.removeItem('user');
+        // window.open('/', '_self');
         }).catch((e)=>{
             console.log(e);
         });
@@ -40633,7 +40633,7 @@ class ProfileView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { Username , Email , Birthday , favoriteMovies  } = this.state;
+        const { username , email , birthday , favoriteMovies  } = this.state;
         const { movies  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
@@ -40695,7 +40695,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 __self: this,
                                                 children: [
                                                     "Username: ",
-                                                    Username,
+                                                    username,
                                                     " "
                                                 ]
                                             }),
@@ -40707,7 +40707,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 __self: this,
                                                 children: [
                                                     "Email: ",
-                                                    Email,
+                                                    email,
                                                     " "
                                                 ]
                                             }),
@@ -40719,7 +40719,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 __self: this,
                                                 children: [
                                                     "Birthday: ",
-                                                    Birthday,
+                                                    birthday,
                                                     " "
                                                 ]
                                             }),
