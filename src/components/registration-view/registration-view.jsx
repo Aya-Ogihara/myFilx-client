@@ -11,9 +11,11 @@ export function RegistrationView(props) {
   const [ birthday, setBirthday ] = useState('');
   
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     axios.post('https://aya-myflix.herokuapp.com/users', {
-      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      
       data: {
       Username: username,
       Password: password,
@@ -27,7 +29,7 @@ export function RegistrationView(props) {
       window.open('/', '_self');
     })
     .catch(e => {
-      console.log(e)
+      console.log(e.message)
       console.log('Error registering the user')
     });
   }
