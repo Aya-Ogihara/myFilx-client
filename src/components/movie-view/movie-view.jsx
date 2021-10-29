@@ -71,7 +71,7 @@ export class MovieView extends React.Component {
         <Button variant='danger' value={movie._id} onClick={() => this.addFavorite()}>Add to my favorite movie list</Button>
         <Button variant='outline-danger' value={movie._id} onClick={() => this.removeFavorite()} style={{ display: 'inline-block', marginLeft: '10px'}}>Remove favorite movie list</Button>
         <Link to={'/'}>
-        <Button variant='outline-danger' style={{ display: 'inline-block', marginLeft: '10px'}}>Return to movie list</Button>
+          <Button variant='outline-danger' style={{ display: 'inline-block', marginLeft: '10px'}}>Return to movie list</Button>
         </Link>
         
       </Card.Body>

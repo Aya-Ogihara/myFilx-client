@@ -20,6 +20,7 @@ export class ProfileView extends React.Component {
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.getUser(accessToken);
+      this.getMovies(accessToken);
     }
   }
 
@@ -42,6 +43,21 @@ export class ProfileView extends React.Component {
       .catch(e => {
         console.log(e);
       });
+  }
+
+  getMovies(token) {
+    axios.get('https://aya-myflix.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      console.log(response)
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch( e => {
+      console.log(e)
+    });
   }
 
   removeFavorite() {
@@ -132,7 +148,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { Username, Email, Birthday, favoriteMovies} = this.state;
+    const { Username, Email, Birthday, favoriteMovies } = this.state;
     const { movies } = this.props;
     return (
       <Container>
@@ -266,7 +282,7 @@ export class ProfileView extends React.Component {
                                   className='profile-button remove-favorite'
                                   variant='outline-danger'
                                   value={movie._id}
-                                  onClick={() => this.removeFavorite()}
+                                  onClick={(e) => this.removeFavorite()}
                                 >
                                   Remove
                                 </Button>

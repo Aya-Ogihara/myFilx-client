@@ -14,22 +14,18 @@ export function RegistrationView(props) {
     
     e.preventDefault();
     axios.post('https://aya-myflix.herokuapp.com/users', {
-      headers: {'Content-Type': 'application/json'},
-      
-      data: {
       Username: username,
       Password: password,
       Email: email,
       Birthday: birthday
-      }
     })
     .then(response => {
       const data = response.data;
       console.log(data)
       window.open('/', '_self');
+      props.onLoggedIn(data)
     })
     .catch(e => {
-      console.log(e.message)
       console.log('Error registering the user')
     });
   }
@@ -45,12 +41,12 @@ export function RegistrationView(props) {
 
         <Form.Group className="mb-3" controlId='formPassword'>
           <Form.Label>*Password:</Form.Label>
-          <Form.Control type='password' onChange={e => setEmail(e.target.value)} placeholder='Please set your password' minLength='8' required />
+          <Form.Control type='password' onChange={e => setPassword(e.target.value)} placeholder='Please set your password' minLength='8' required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId='formEmail'>
           <Form.Label>*Email:</Form.Label>
-          <Form.Control type='email' onChange={e => setPassword(e.target.value)} placeholder='example@mail.com' required />
+          <Form.Control type='email' onChange={e => setEmail(e.target.value)} placeholder='example@mail.com' required />
         </Form.Group>
 
         <Form.Group className="mb-4" controlId='formBirthday'>

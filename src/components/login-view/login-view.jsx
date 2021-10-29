@@ -20,6 +20,7 @@ export function LoginView(props) {
       props.onLoggedIn(data)
     })
     .catch(e => {
+      console.log(e.response.data)
       console.log('No user found')
     });
   };
