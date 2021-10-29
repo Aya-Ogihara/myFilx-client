@@ -20,7 +20,6 @@ export class ProfileView extends React.Component {
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.getUser(accessToken);
-      this.getMovies(accessToken);
     }
   }
 
@@ -43,21 +42,6 @@ export class ProfileView extends React.Component {
       .catch(e => {
         console.log(e);
       });
-  }
-
-  getMovies(token) {
-    axios.get('https://aya-myflix.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}`}
-    })
-    .then(response => {
-      console.log(response)
-      this.setState({
-        movies: response.data
-      });
-    })
-    .catch( e => {
-      console.log(e)
-    });
   }
 
   removeFavorite() {
@@ -83,7 +67,6 @@ export class ProfileView extends React.Component {
   handleUpdate(e) {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
-    console.log(`User: ${user} Token: ${token}`)
     e.preventDefault();
     axios
       .put(`https://aya-myflix.herokuapp.com/users/${user}`, {}, {
@@ -94,7 +77,8 @@ export class ProfileView extends React.Component {
           Password: this.state.Password,
           Email: this.state.Email,
           Birthday: this.state.Birthday,
-        },
+        }
+        
       })
       .then(() => {
         alert('Saved Changes. Please Re-login');
@@ -109,6 +93,7 @@ export class ProfileView extends React.Component {
 
   setName(input) {
     this.Name = input;
+    console.log(input)
   }
 
   setUsername(input) {
@@ -166,7 +151,7 @@ export class ProfileView extends React.Component {
                 <ListGroupItem>
                   <Button
                   variant='outline-secondary'
-                  onClick={() => handleDeleteUser()}
+                  onClick={() => this.handleDeleteUser()}
                   >Delete Account</Button>
                 </ListGroupItem>
               </ListGroup>
