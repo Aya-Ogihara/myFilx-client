@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 // Rect Bootstrap
 import { Form, Button, Row, Col, Card, CardGroup, Container, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { UpdateView } from './update-view';
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -73,10 +74,10 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
         method: 'PUT',
         data: {
-          username: this.state.Username,
-          password: this.state.Password,
-          email: this.state.Email,
-          birthday: this.state.Birthday,
+          username: this.state.username,
+          password: this.state.password,
+          email: this.state.email,
+          birthday: this.state.birthday,
         }
       })
       .then((res) => {
@@ -226,6 +227,8 @@ export class ProfileView extends React.Component {
               </Card>
             </CardGroup>
           </Col>
+          
+          {/* <UpdateView /> */}
         </Row>
 
 {/* Favorite movie */}
