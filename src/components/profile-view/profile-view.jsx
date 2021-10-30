@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 // Rect Bootstrap
-import { Form, Button, Row, Col, Card, CardGroup, Container, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Button, Row, Col, Card, Container, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { UpdateView } from './update-view';
 
 export class ProfileView extends React.Component {
@@ -65,59 +65,6 @@ export class ProfileView extends React.Component {
       });
   }
 
-  handleUpdate(e) {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    e.preventDefault();
-    axios
-      .put(`https://aya-myflix.herokuapp.com/users/${user}`, {}, {
-        headers: { Authorization: `Bearer ${token}` },
-        method: 'PUT',
-        data: {
-          username: this.state.username,
-          password: this.state.password,
-          email: this.state.email,
-          birthday: this.state.birthday,
-        }
-      })
-      .then((res) => {
-        console.log(res.data)
-        this.setState({
-          username: res.data.Username,
-          password: res.data.Password,
-          email: res.data.Email,
-          birthday: res.data.Birthday,
-        })
-        alert('Saved Changes. Please Re-login');
-        // localStorage.removeItem('token');
-        // localStorage.removeItem('user');
-        // window.open('/', '_self');
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
-  setUsername(value) {
-    this.state.Username = value
-    console.log(value)
-  }
-
-  setPassword(value) {
-    this.state.Password = value;
-    console.log(value)
-  }
-
-  setEmail(value) {
-    this.state.Email = value;
-    console.log(value)
-  }
-
-  setBirthday(value) {
-    this.state.Birthday = value;
-    console.log(value)
-  }
-
   handleDeleteUser() {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -165,70 +112,8 @@ export class ProfileView extends React.Component {
           </Col>
 
 {/* Update form */}
-
-          <Col md={8}>
-            <CardGroup>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Update</Card.Title>
-
-                  <Form>
-                    <Form.Group controlId='formUsername'>
-                      <Form.Label>Username:</Form.Label>
-                      <Form.Control
-                        type='text'
-                        onChange={(e) =>
-                          this.setUsername(e.target.value)
-                        }
-                        required
-                        placeholder='Username'
-                      />
-                    </Form.Group>
-
-                    <Form.Group controlId='formPassword'>
-                      <Form.Label>Password:</Form.Label>
-                      <Form.Control
-                        type='password'
-                        onChange={(e) =>
-                          this.setPassword(e.target.value)
-                        }
-                        required
-                        minLength='8'
-                        placeholder='Change your password'
-                      />
-                    </Form.Group>
-
-                    <Form.Group controlId='formEmail'>
-                      <Form.Label>Email:</Form.Label>
-                      <Form.Control
-                        type='email'
-                        onChange={(e) =>
-                          this.setEmail(e.target.value)
-                        }
-                        required
-                        placeholder='Change your email'
-                      />
-                    </Form.Group>
-
-                    <Form.Group controlId='formBirthday'>
-                      <Form.Label>Birthday:</Form.Label>
-                      <Form.Control
-                        type='date'
-                        onChange={(e) =>
-                          this.setBirthday(e.target.value)
-                        }
-                      />
-                    </Form.Group>
-                    <Button variant='danger' type='submit' className='mt-4' onClick={(e) => this.handleUpdate(e)}>
-                      Update
-                    </Button>
-                  </Form>
-                </Card.Body>
-              </Card>
-            </CardGroup>
-          </Col>
           
-          {/* <UpdateView /> */}
+          <UpdateView />
         </Row>
 
 {/* Favorite movie */}
@@ -249,10 +134,10 @@ export class ProfileView extends React.Component {
                 )}
                 <Row className='favorites-movies justify-content-md-center'>
                   {favoriteMovies.length > 0 &&
-                    movies.map((movie) => {
+                    movies.map(movie => {
                       if (
                         movie._id ===
-                        favoriteMovies.find((fav) => fav === movie._id)
+                        favoriteMovies.find(fav => fav === movie._id)
                       ) {
                         return (
                             <Card
