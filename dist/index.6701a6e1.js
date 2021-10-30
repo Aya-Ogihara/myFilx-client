@@ -40878,7 +40878,7 @@ var _s = $RefreshSig$();
 const UpdateView = ()=>{
     _s();
     const [username, setUsername] = _react.useState('');
-    // const [ password, setPassword ] = useState('');
+    const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
     const handleUpdate = (e)=>{
@@ -40887,7 +40887,7 @@ const UpdateView = ()=>{
         e.preventDefault();
         const data = {
             Username: username,
-            // Password: password,
+            Password: password,
             Email: email,
             Birthday: birthday
         };
@@ -40974,6 +40974,38 @@ const UpdateView = ()=>{
                                         ]
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                                        controlId: "formPassword",
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-view.jsx",
+                                            lineNumber: 61
+                                        },
+                                        __self: undefined,
+                                        children: [
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                                __source: {
+                                                    fileName: "src/components/profile-view/update-view.jsx",
+                                                    lineNumber: 62
+                                                },
+                                                __self: undefined,
+                                                children: "Password:"
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                                type: "password",
+                                                value: password,
+                                                onChange: (e)=>setPassword(e.target.value)
+                                                ,
+                                                required: true,
+                                                minLength: "8",
+                                                placeholder: "Change your password",
+                                                __source: {
+                                                    fileName: "src/components/profile-view/update-view.jsx",
+                                                    lineNumber: 63
+                                                },
+                                                __self: undefined
+                                            })
+                                        ]
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                         controlId: "formEmail",
                                         __source: {
                                             fileName: "src/components/profile-view/update-view.jsx",
@@ -41054,7 +41086,7 @@ const UpdateView = ()=>{
         ]
     }));
 };
-_s(UpdateView, "y8jjGo9KbUco1Ipxfx1/A6fbtjE=");
+_s(UpdateView, "oodxkowr8L/+sgf0pg4pF6PrtNw=");
 _c = UpdateView;
 var _c;
 $RefreshReg$(_c, "UpdateView");

@@ -5,7 +5,7 @@ import { Form, Card, Button, Col } from 'react-bootstrap';
 
   export const UpdateView = () => {
     const [ username, setUsername ] = useState('');
-    // const [ password, setPassword ] = useState('');
+    const [ password, setPassword ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ birthday, setBirthday ] = useState('');
     
@@ -16,7 +16,7 @@ import { Form, Card, Button, Col } from 'react-bootstrap';
       e.preventDefault();
       const data = {
         Username: username,
-        // Password: password,
+        Password: password,
         Email: email,
         Birthday: birthday
       }  
@@ -58,7 +58,7 @@ import { Form, Card, Button, Col } from 'react-bootstrap';
               />
             </Form.Group>
 
-            {/* <Form.Group controlId='formPassword'>
+            <Form.Group controlId='formPassword'>
               <Form.Label>Password:</Form.Label>
               <Form.Control
                 type='password'
@@ -71,7 +71,7 @@ import { Form, Card, Button, Col } from 'react-bootstrap';
                 placeholder='Change your password'
               
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group controlId='formEmail'>
               <Form.Label>Email:</Form.Label>
