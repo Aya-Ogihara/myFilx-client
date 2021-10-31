@@ -5,7 +5,7 @@ import { Container, Navbar, Nav, Button} from 'react-bootstrap';
 
 export const HeaderSection = () => {
 
-  onLoggedOut = () => {
+  const onLoggedOut = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     window.open('/', '_self');

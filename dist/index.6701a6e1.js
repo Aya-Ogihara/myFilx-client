@@ -41113,7 +41113,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 // Rect Bootstrap
 var _reactBootstrap = require("react-bootstrap");
 const HeaderSection = ()=>{
-    onLoggedOut = ()=>{
+    const onLoggedOut = ()=>{
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         window.open('/', '_self');
