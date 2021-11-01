@@ -1,6 +1,7 @@
 
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // Rect Bootstrap
 import { Button, Row, Col, Card, Container, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { UpdateView } from './update-view';
@@ -145,24 +146,24 @@ export class ProfileView extends React.Component {
                               style={{ width: '18rem' }}
                               key={movie._id}
                             >
-                              <Card.Img
-                                className='movieCard'
-                                variant='top'
-                                src={movie.ImagePath}
-                                crossOrigin='anonymous'
-                                alt={movie.Title}
-                              />
                               <Card.Body>
-                                <Card.Title className='movie-card-title'>
-                                  {movie.Title}
-                                </Card.Title>
+                                <Link to={`/movies/${movie._id}`}>
+                                  <Card.Img
+                                  className='movieCard'
+                                  variant='top'
+                                  src={movie.ImagePath}
+                                  crossOrigin='anonymous'
+                                  alt={movie.Title}
+                                  />
+                                  <Card.Title className='movie-card-title'>{movie.Title}</Card.Title>
+                                </Link>
                                 <Button
                                   className='profile-button remove-favorite'
                                   variant='outline-danger'
                                   value={movie._id}
                                   onClick={() => this.removeFavorite(movie._id)}
                                 >
-                                  Remove
+                                  Remove from my favorite
                                 </Button>
                               </Card.Body>
                             </Card>
