@@ -42596,9 +42596,7 @@ function MoviesList(props) {
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                 md: 12,
-                style: {
-                    margin: '1em'
-                },
+                className: "mb-4",
                 __source: {
                     fileName: "src/components/movies-list/movies-list.jsx",
                     lineNumber: 29
