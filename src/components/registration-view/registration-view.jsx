@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
+import axios from 'axios';
 // Rect Bootstrap
-import Row from 'react-bootstrap/Row';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Row, Form, Button } from 'react-bootstrap';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -12,11 +11,23 @@ export function RegistrationView(props) {
   const [ birthday, setBirthday ] = useState('');
   
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    /* Send a request to the server for authentication */
-    /* then call props.onRegistered(username) */
-    props.onRegistered(username);
+    axios.post('https://aya-myflix.herokuapp.com/users', {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    })
+    .then(response => {
+      const data = response.data;
+      console.log(data)
+      window.open('/', '_self');
+      props.onLoggedIn(data)
+    })
+    .catch(e => {
+      console.log('Error registering the user')
+    });
   }
 
   return (
@@ -30,12 +41,12 @@ export function RegistrationView(props) {
 
         <Form.Group className="mb-3" controlId='formPassword'>
           <Form.Label>*Password:</Form.Label>
-          <Form.Control type='password' onChange={e => setEmail(e.target.value)} placeholder='Please set your password' required />
+          <Form.Control type='password' onChange={e => setPassword(e.target.value)} placeholder='Please set your password' minLength='8' required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId='formEmail'>
           <Form.Label>*Email:</Form.Label>
-          <Form.Control type='email' onChange={e => setPassword(e.target.value)} placeholder='example@mail.com' required />
+          <Form.Control type='email' onChange={e => setEmail(e.target.value)} placeholder='example@mail.com' required />
         </Form.Group>
 
         <Form.Group className="mb-4" controlId='formBirthday'>
