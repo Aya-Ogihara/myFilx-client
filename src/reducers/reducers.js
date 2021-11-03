@@ -1,6 +1,6 @@
 import { combineReducers  } from "redux";
 
-import { SET_MOVIES, SET_FILTER } from "../actions/actions";
+import { SET_MOVIES, SET_FILTER, SET_USER } from "../actions/actions";
 
 function visibilityFilter(state = '', action) {
   switch (action.type) {
@@ -21,9 +21,21 @@ function movies(state = [], action) {
   }
 }
 
+function user(state = '', action) {
+  switch (action.type) {
+    case SET_USER:
+      console.log('SET_USERS reducer reached');
+      return action.value;
+    default:
+      return state;
+  }
+}
+
+
 const moviesApp =  combineReducers({
   visibilityFilter,
-  movies
+  movies,
+  user
 });
 
 export default moviesApp;

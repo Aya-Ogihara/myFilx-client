@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { setMovies } from '../../actions/actions';;
+import { setMovies } from '../../actions/actions';
 
 
 // import components
@@ -39,7 +39,7 @@ class MainView extends React.Component {
       console.log(response)
       this.props.setMovies(response.data);
     })
-    .catch( e => {
+    .catch(e => {
       console.log(e)
     });
   }
