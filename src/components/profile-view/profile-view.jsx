@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { setUser } from '../../actions/actions';
 
 // Rect Bootstrap
 import { Button, Row, Col, Card, Container, ListGroup, ListGroupItem } from 'react-bootstrap';
@@ -13,31 +12,8 @@ import { Button, Row, Col, Card, Container, ListGroup, ListGroupItem } from 'rea
 // import components
 import { UpdateView } from './update-view';
 
+
 class ProfileView extends React.Component {
-
-  componentDidMount() {
-    const accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.getUser(accessToken);
-    }
-  }
-
-  getUser() {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    axios
-      .get(`https://aya-myflix.herokuapp.com/users/${user}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        method: 'GET'
-      })
-      .then(response => {
-        console.log(response)
-        this.props.setUser(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
 
   removeFavorite(id) {
     const token = localStorage.getItem('token');
@@ -82,7 +58,7 @@ class ProfileView extends React.Component {
   render() {
 
     const { movies, user } = this.props;
-    
+
     return (
       <Container>
         <Row>
@@ -174,8 +150,4 @@ class ProfileView extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { user: state.user }
-}
-
-export default connect(mapStateToProps, { setUser })(ProfileView);
+export default connect()(ProfileView);

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 // Redux
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
+import { setUser } from '../../actions/actions';
 
 
 // import components
@@ -22,12 +23,14 @@ import { Row, Col } from 'react-bootstrap';
 // Create MainView component
 class MainView extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      // Initial state is set to null
-      //movies: [],
-      user: null,
+  componentDidMount() {
+    const accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      // this.setState({
+      //   user: localStorage.getItem('user')
+      // });
+      this.getUser(accessToken);
+      this.getMovies(accessToken);
     }
   }
 
@@ -44,14 +47,21 @@ class MainView extends React.Component {
     });
   }
 
-  componentDidMount() {
-    const accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
+  getUser() {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    axios
+      .get(`https://aya-myflix.herokuapp.com/users/${user}`, {
+        headers: { Authorization: `Bearer ${token}` },
+        method: 'GET'
+      })
+      .then(response => {
+        console.log(response)
+        this.props.setUser(response.data);
+      })
+      .catch(e => {
+        console.log(e);
       });
-      this.getMovies(accessToken)
-    }
   }
 
   onLoggedIn(authData) {
@@ -67,8 +77,7 @@ class MainView extends React.Component {
 
 
   render() {
-    const { movies } = this.props;
-    const { user } = this.state;
+    const { movies, user } = this.props;
 
     return (
       <Router>
@@ -127,7 +136,7 @@ class MainView extends React.Component {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
           </Col> 
             if (movies.length === 0) return <div className='main-view' />
-            return <ProfileView movies={movies} />
+            return <ProfileView movies={movies} user={user}/>
             }} />
         </Row>
       </Router>
@@ -136,7 +145,10 @@ class MainView extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { movies: state.movies }
+  return {
+    movies: state.movies, 
+    user: state.user
+  }
 }
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
