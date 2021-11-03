@@ -2,21 +2,18 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+// Redux
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+
 // Rect Bootstrap
 import { Button, Row, Col, Card, Container, ListGroup, ListGroupItem } from 'react-bootstrap';
+
+// import components
 import { UpdateView } from './update-view';
 
-export class ProfileView extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      username: null,
-      password: null, 
-      email: null,
-      birthday: null,
-      favoriteMovies: [],
-    };
-  }
+class ProfileView extends React.Component {
 
   componentDidMount() {
     const accessToken = localStorage.getItem('token');
@@ -34,12 +31,8 @@ export class ProfileView extends React.Component {
         method: 'GET'
       })
       .then(response => {
-        this.setState({
-          username: response.data.Username,
-          email: response.data.Email,
-          birthday: response.data.Birthday,
-          favoriteMovies: response.data.FavoriteMovies,
-        });
+        console.log(response)
+        this.props.setUser(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -87,8 +80,9 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { username, email, birthday, favoriteMovies } = this.state;
-    const { movies } = this.props;
+
+    const { movies, user } = this.props;
+    
     return (
       <Container>
         <Row>
@@ -99,9 +93,9 @@ export class ProfileView extends React.Component {
                 <Card.Title>My Profile</Card.Title>
               </Card.Body>
               <ListGroup className='list-group-flush'>
-                <ListGroupItem>Username: {username} </ListGroupItem>
-                <ListGroupItem>Email: {email} </ListGroupItem>
-                <ListGroupItem>Birthday: {birthday} </ListGroupItem>
+                <ListGroupItem>Username: {user.Username} </ListGroupItem>
+                <ListGroupItem>Email: {user.Email} </ListGroupItem>
+                <ListGroupItem>Birthday: {user.Birthday} </ListGroupItem>
                 <ListGroupItem>
                   <Button
                   variant='outline-secondary'
@@ -128,17 +122,17 @@ export class ProfileView extends React.Component {
           <Row>
             <Col>
               <Card.Body>
-                {favoriteMovies.length === 0 && (
+                {user.FavoriteMovies?.length === 0 && (
                   <div style={{textAlign: 'center'}}>
                     You have no favorite movies.
                   </div>
                 )}
                 <Row className='favorites-movies justify-content-md-center'>
-                  {favoriteMovies.length > 0 &&
+                  {user.FavoriteMovies?.length > 0 &&
                     movies.map(movie => {
                       if (
                         movie._id ===
-                        favoriteMovies.find(fav => fav === movie._id)
+                        user.FavoriteMovies.find(fav => fav === movie._id)
                       ) {
                         return (
                             <Card
@@ -179,3 +173,9 @@ export class ProfileView extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { user: state.user }
+}
+
+export default connect(mapStateToProps, { setUser })(ProfileView);
