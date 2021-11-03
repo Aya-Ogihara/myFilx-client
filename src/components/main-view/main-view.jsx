@@ -66,9 +66,7 @@ class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
-      user: authData.user.Username
-    });
+    this.props.setUser(authData.user)
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
@@ -97,7 +95,7 @@ class MainView extends React.Component {
           <Route path='/register' render={() => {
             if (user) return <Redirect to='/' />
             return <Col>
-            <RegistrationView onLoggedIn={user => this.onLoggedIn(user)}/>
+            <RegistrationView />
             </Col>
           }} />
 
@@ -110,9 +108,7 @@ class MainView extends React.Component {
 
           {/* Director view */}
           <Route path='/directors/:name' render={({ match, history} ) => {
-            if (!user) return <Col>
-              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-            </Col> 
+            if (!user) return <Redirect to='/' />
             if (movies.length === 0) return <div className='main-view' />
             return <Col md={12} lg={8}>
               <DirectorView director={movies.find(movie => movie.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
@@ -121,9 +117,7 @@ class MainView extends React.Component {
 
           {/* Genre view */}
           <Route path='/genres/:name' render={({ match, history} ) => {
-            if (!user) return <Col>
-              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-            </Col> 
+            if (!user) return <Redirect to='/' />
             if (movies.length === 0) return <div className='main-view' />
             return <Col md={12} lg={8}>
               <GenreView genre={movies.find(movie => movie.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />

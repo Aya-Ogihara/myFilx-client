@@ -1,4 +1,3 @@
-
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -28,7 +27,7 @@ class ProfileView extends React.Component {
       )
       .then(() => {
         alert('The movie was removed');
-        this.componentDidMount() 
+        window.location.reload();
       })
       .catch(e => {
         console.log(e);
@@ -124,6 +123,7 @@ class ProfileView extends React.Component {
                                   src={movie.ImagePath}
                                   crossOrigin='anonymous'
                                   alt={movie.Title}
+                                  style={{height: '18rem'}}
                                   />
                                   <Card.Title className='movie-card-title'>{movie.Title}</Card.Title>
                                 </Link>

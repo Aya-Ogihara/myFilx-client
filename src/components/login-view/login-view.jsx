@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 // Rect Bootstrap
 import { Row, Form, Button } from 'react-bootstrap';
 
@@ -17,6 +18,7 @@ export function LoginView(props) {
     })
     .then(response => {
       const data = response.data;
+      console.log(data)
       props.onLoggedIn(data)
     })
     .catch(e => {
@@ -31,12 +33,14 @@ export function LoginView(props) {
       <Form style={{ width: '30rem' }} className='mb-3'>
         <Form.Group className='mb-3 mt-3' controlId='formUsername'>
           <Form.Label>*Username:</Form.Label>
-          <Form.Control type='text' onChange={e => setUsername(e.target.value)}  placeholder='Please enter your username' required />
+          <Form.Control type='text' isInvalid = {/[^0-9a-zA-Z]/.test(username) || username.length < 5} onChange={e => setUsername(e.target.value)}  placeholder='Your username' required />
+          <Form.Control.Feedback type = "invalid">Please enter your username</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-4' controlId='formPassword'>
           <Form.Label>*Password:</Form.Label>
-          <Form.Control type='password' onChange={e => setPassword(e.target.value)} placeholder='Please enter your password' required />
+          <Form.Control type='password' isInvalid = {/[^0-9a-zA-Z]/.test(password) || password.length < 8} onChange={e => setPassword(e.target.value)} placeholder='Your password' required />
+          <Form.Control.Feedback type = "invalid">Please enter password</Form.Control.Feedback>
         </Form.Group>
 
         <Button variant='danger' type='submit' onClick={handleSubmit} >Login</Button>
