@@ -22822,7 +22822,7 @@ class MainView extends _reactDefault.default.Component {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            console.log(response);
+            //console.log(response)
             this.props.setMovies(response.data);
         }).catch((e)=>{
             console.log(e);
@@ -22840,7 +22840,7 @@ class MainView extends _reactDefault.default.Component {
             },
             method: 'GET'
         }).then((response)=>{
-            console.log(response);
+            //console.log(response)
             this.props.setUser(response.data);
             this.setState({
                 loading: false
@@ -22853,10 +22853,11 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     onLoggedIn(authData) {
-        console.log(authData);
-        this.setState({
-            user: authData.user.Username
-        });
+        //console.log(authData);
+        // this.setState({
+        //   user: authData.user.Username
+        // });
+        this.props.setUser(authData.user);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -22867,14 +22868,14 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 94
+                lineNumber: 95
             },
             __self: this,
             children: this.state.loading ? /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 className: "loading",
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 96
+                    lineNumber: 97
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Spinner, {
@@ -22883,7 +22884,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "spinner",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 97
+                        lineNumber: 98
                     },
                     __self: this
                 })
@@ -22891,7 +22892,7 @@ class MainView extends _reactDefault.default.Component {
                 className: "justify-content-md-center main-view mt-5",
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 100
+                    lineNumber: 101
                 },
                 __self: this,
                 children: [
@@ -22913,7 +22914,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 103
+                            lineNumber: 104
                         },
                         __self: this
                     }),
@@ -22931,7 +22932,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 112
+                            lineNumber: 113
                         },
                         __self: this
                     }),
@@ -22950,7 +22951,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 120
+                            lineNumber: 121
                         },
                         __self: this
                     }),
@@ -22977,7 +22978,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 127
+                            lineNumber: 128
                         },
                         __self: this
                     }),
@@ -23004,7 +23005,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 138
+                            lineNumber: 139
                         },
                         __self: this
                     }),
@@ -23026,7 +23027,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 149
+                            lineNumber: 150
                         },
                         __self: this
                     })
@@ -42478,21 +42479,21 @@ const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
 function setMovies(value) {
-    console.log('SET_MOVIES action triggered');
+    //console.log('SET_MOVIES action triggered');
     return {
         type: SET_MOVIES,
         value
     };
 }
 function setFilter(value) {
-    console.log('SET_FILTER action triggered');
+    //console.log('SET_FILTER action triggered');
     return {
         type: SET_FILTER,
         value
     };
 }
 function setUser(value) {
-    console.log('SET_USER action triggered');
+    //console.log('SET_USER action triggered');
     return {
         type: SET_USER,
         value
@@ -43321,7 +43322,7 @@ function visibilityFilter(state = '', action) {
 function movies(state = [], action) {
     switch(action.type){
         case _actions.SET_MOVIES:
-            console.log('SET_MOVIES reducer reached');
+            //console.log('SET_MOVIES reducer reached');
             return action.value;
         default:
             return state;
@@ -43330,7 +43331,7 @@ function movies(state = [], action) {
 function user(state = '', action) {
     switch(action.type){
         case _actions.SET_USER:
-            console.log('SET_USERS reducer reached');
+            //console.log('SET_USERS reducer reached');
             return action.value;
         default:
             return state;

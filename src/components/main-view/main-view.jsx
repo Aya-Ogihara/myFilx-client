@@ -46,7 +46,7 @@ class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-      console.log(response)
+      //console.log(response)
       this.props.setMovies(response.data);
     })
     .catch(e => {
@@ -64,7 +64,7 @@ class MainView extends React.Component {
         method: 'GET'
       })
       .then(response => {
-        console.log(response)
+        //console.log(response)
         this.props.setUser(response.data);
         this.setState({ loading: false });
       })
@@ -75,10 +75,11 @@ class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    console.log(authData);
-    this.setState({
-      user: authData.user.Username
-    });
+    //console.log(authData);
+    // this.setState({
+    //   user: authData.user.Username
+    // });
+    this.props.setUser(authData.user);
 
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
