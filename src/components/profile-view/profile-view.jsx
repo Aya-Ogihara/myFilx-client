@@ -88,7 +88,7 @@ class ProfileView extends React.Component {
         </Row>
 
 {/* Favorite movie */}
-        <Card className='mt-4'>
+        <Card className='mt-4 mb-5'>
           <Row>
             <Col xs={12} className='p-4'>
               <h4 style={{textAlign: 'center'}}>Favorite Movies</h4>
@@ -103,7 +103,7 @@ class ProfileView extends React.Component {
                     You have no favorite movies.
                   </div>
                 )}
-                <Row className='favorites-movies justify-content-md-center'>
+                <Row className='favorites-movies justify-content-md-center mb-4'>
                   {user.FavoriteMovies?.length > 0 &&
                     movies.map(movie => {
                       if (
@@ -124,11 +124,12 @@ class ProfileView extends React.Component {
                                   src={movie.ImagePath}
                                   crossOrigin='anonymous'
                                   alt={movie.Title}
+                                  style={{height: '16rem'}}
                                   />
                                   <Card.Title className='movie-card-title'>{movie.Title}</Card.Title>
                                 </Link>
                                 <Button
-                                  className='profile-button remove-favorite'
+                                  className='profile-button remove-favorite mt-3'
                                   variant='outline-danger'
                                   value={movie._id}
                                   onClick={() => this.removeFavorite(movie._id)}

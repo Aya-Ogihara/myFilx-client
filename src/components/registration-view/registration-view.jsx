@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // Rect Bootstrap
 import { Row, Form, Button } from 'react-bootstrap';
 
@@ -57,6 +58,9 @@ export function RegistrationView(props) {
         <Button variant='danger' type='submit'  onClick={handleSubmit} >
           Register
         </Button>
+        <Link to={'/'}>
+          <Button variant='outline-danger' style={{ display: 'inline-block', marginLeft: '10px'}}>Return to login page</Button>
+        </Link>
       </Form>
     </Row>  
   )
