@@ -10,7 +10,6 @@ import { setUser } from '../../actions/actions';
 
 // import components
 import MoviesList from '../movies-list/movies-list'
-import { HeaderSection } from '../header-section/header-section';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieView } from '../movie-view/movie-view';
@@ -81,7 +80,6 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        <HeaderSection />
         <Row className='justify-content-md-center main-view mt-5'>
 
           {/* Movies -- Top page*/}

@@ -13,7 +13,7 @@ import moviesApp from './reducers/reducers';
 
 // Import components
 import MainView from './components/main-view/main-view';
-
+import { HeaderSection } from './components/header-section/header-section';
 // Import scss
 import './index.scss';
 
@@ -25,6 +25,7 @@ class MyFlixApplication extends React.Component {
   render() {
     return (
       <Provider store={myFlixStore}>
+        <HeaderSection />
         <Container>
           <MainView />
         </Container>
