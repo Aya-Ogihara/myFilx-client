@@ -40723,7 +40723,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 )) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
                                                     className: "favorites-item card-content",
                                                     style: {
-                                                        width: '18rem'
+                                                        width: '19rem'
                                                     },
                                                     __source: {
                                                         fileName: "src/components/profile-view/profile-view.jsx",
@@ -40752,7 +40752,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                         crossOrigin: "anonymous",
                                                                         alt: movie.Title,
                                                                         style: {
-                                                                            height: '16rem'
+                                                                            height: '18rem'
                                                                         },
                                                                         __source: {
                                                                             fileName: "src/components/profile-view/profile-view.jsx",
@@ -40761,7 +40761,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                         __self: this
                                                                     }),
                                                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
-                                                                        className: "movie-card-title",
+                                                                        className: "movie-card-title mt-2",
                                                                         __source: {
                                                                             fileName: "src/components/profile-view/profile-view.jsx",
                                                                             lineNumber: 129
@@ -42558,11 +42558,8 @@ function MoviesList(props) {
                 })
             }),
             filteredMovies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                    sm: 12,
-                    md: 6,
-                    lg: 4,
-                    xl: 3,
-                    className: "mb-5",
+                    xs: "auto",
+                    className: "justify-content-md-center mb-5",
                     __source: {
                         fileName: "src/components/movies-list/movies-list.jsx",
                         lineNumber: 33
@@ -42669,38 +42666,30 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                    to: `/movies/${movie._id}`,
+                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
+                    variant: "top",
+                    src: movie.ImagePath,
+                    crossOrigin: "anonymous",
+                    style: {
+                        height: '18rem'
+                    },
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 14
                     },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
-                        variant: "top",
-                        src: movie.ImagePath,
-                        crossOrigin: "anonymous",
-                        style: {
-                            height: '18rem'
-                        },
-                        __source: {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 15
-                        },
-                        __self: this
-                    })
+                    __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 16
+                        lineNumber: 15
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 17
+                                lineNumber: 16
                             },
                             __self: this,
                             children: movie.Title
@@ -42713,7 +42702,7 @@ class MovieCard extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 18
+                                lineNumber: 17
                             },
                             __self: this,
                             children: movie.Description
@@ -42722,14 +42711,14 @@ class MovieCard extends _reactDefault.default.Component {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 19
+                                lineNumber: 18
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                 variant: "danger",
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 20
+                                    lineNumber: 19
                                 },
                                 __self: this,
                                 children: "More details"

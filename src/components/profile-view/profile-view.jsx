@@ -113,7 +113,7 @@ class ProfileView extends React.Component {
                         return (
                             <Card
                               className='favorites-item card-content'
-                              style={{ width: '18rem' }}
+                              style={{ width: '19rem' }}
                               key={movie._id}
                             >
                               <Card.Body>
@@ -124,9 +124,9 @@ class ProfileView extends React.Component {
                                   src={movie.ImagePath}
                                   crossOrigin='anonymous'
                                   alt={movie.Title}
-                                  style={{height: '16rem'}}
+                                  style={{height: '18rem'}}
                                   />
-                                  <Card.Title className='movie-card-title'>{movie.Title}</Card.Title>
+                                  <Card.Title className='movie-card-title mt-2'>{movie.Title}</Card.Title>
                                 </Link>
                                 <Button
                                   className='profile-button remove-favorite mt-3'

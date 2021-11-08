@@ -11,8 +11,7 @@ export class MovieCard extends React.Component {
 
     return (
       <Card style={{ width: '18rem', height: '41rem'}}>
-        <Link to={`/movies/${movie._id}`}>
-        <Card.Img variant="top" src={movie.ImagePath} crossOrigin='anonymous' style={{height: '18rem'}} /></Link>
+        <Card.Img variant="top" src={movie.ImagePath} crossOrigin='anonymous' style={{height: '18rem'}} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text style={{height: '15rem', textOverflow: 'ellipsis', overflow: 'hidden'}}>{movie.Description}</Card.Text>
