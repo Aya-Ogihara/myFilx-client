@@ -1,0 +1,13 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  margin-top: 40vh;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.8fa38637.css.map */
