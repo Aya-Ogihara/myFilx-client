@@ -1,5 +1,7 @@
 # React Application (myFlix)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4c79e556-346d-4d6f-a0d5-b5569fe36c9a/deploy-status)](https://app.netlify.com/sites/myfilix-aya/deploys)
+
+https://myfilix-aya.netlify.app/
 ## Objective
 Using React, build the client-side for an application called myFlix based on its existing REST API and database
 [movie_api](https://github.com/Aya-Ogihara/movie_api).
