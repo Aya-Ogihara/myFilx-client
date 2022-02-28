@@ -33,3 +33,7 @@ Director view
 * Allows existing users to deregister
 * Displays favorite movies
 * Allows users to remove a movie from their list of favorites
+
+## Test User 
+ID: newtest01
+Password: newtest01
