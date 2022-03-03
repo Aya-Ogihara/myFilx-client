@@ -10,11 +10,15 @@
 Username: `newtest01`
 Password: `newtest01`
 
-
 ## Objective
 Using React, build the client-side for an application called myFlix based on its existing REST API and database
 [movie_api](https://github.com/Aya-Ogihara/movie_api).
 
+## Tech Stack
+* Mongo DB
+* Express
+* React
+* Node
 
 ## Features
 **Main view**
